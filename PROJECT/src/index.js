@@ -1,41 +1,27 @@
-/*BASE*/
-import React from 'react';
-import ReactDOM, {render} from 'react-dom';
-import {HashRouter, Switch, Route, Redirect} from 'react-router-dom';
-
-/*REDUX STORE*/
-import {Provider} from 'react-redux';
-import store from './store/index';
-
-/*ANTD*/
-
-/*IMPORT CSS*/
+import React from 'react'
+import {render} from 'react-dom'
+import {Provider} from 'react-redux'
+import store from './store/index'
+import {HashRouter, Switch, Route, Redirect} from 'react-router-dom'
+//antd
+import {LocaleProvider} from 'antd';
+import zh_CN from 'antd/lib/locale-provider/zh_CN';
+//less
 import './static/css/reset.min.css';
+import Home from "./routes/Home";
+import Person from "./routes/Person";
+import Detail from "./routes/Detail";
 
-
-/*IMPORT COMPONENT*/
-
-
-/*RENDER*/
 render(<Provider store={store}>
     <HashRouter>
         <LocaleProvider locale={zh_CN}>
-            <div>
-                {/*HEADER*/}
-                <NavTop/>
-
-                {/*MAIN=>ROUTE*/}
-                <main className='container'>
-                    <Switch>
-                        <Route path='/course' component={Home}/>
-                        <Route path='/mycourse' component={Mycourse}/>
-                        <Route path='/person' component={Person}/>
-                        <Redirect to='/course'/>
-                    </Switch>
-                </main>
-
-                {/*FOOTER*/}
-                <NavBottom/>
+            <div className={'container'}>
+                <Switch>
+                    {/*<Route path={'/home'} exact component={Home}/>*/}
+                    {/*<Route path={'/personal'} component={Person}/>*/}
+                    <Route path={'/'} component={Detail}/>
+                    {/*<Redirect to={'/home'}/>*/}
+                </Switch>
             </div>
         </LocaleProvider>
     </HashRouter>

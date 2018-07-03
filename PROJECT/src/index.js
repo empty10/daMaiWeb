@@ -9,7 +9,6 @@ import store from './store/index';
 
 /*ANTD*/
 
-
 /*IMPORT CSS*/
 import './static/css/reset.min.css';
 

@@ -8,9 +8,9 @@ import {LocaleProvider} from 'antd';
 import zh_CN from 'antd/lib/locale-provider/zh_CN';
 //less
 import './static/less/reset.min.css'
-import Home from "./store/routes/Home";
-import Person from "./store/routes/Person";
-import Detail from "./store/routes/Detail";
+import Home from "./routes/Home";
+import Person from "./routes/Person";
+import Detail from "./routes/Detail";
 
 render(<Provider store={store}>
     <HashRouter>

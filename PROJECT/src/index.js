@@ -20,7 +20,7 @@ render(<Provider store={store}>
                     <Route path={'/home'} exact component={Home}/>
                     <Route path={'/personal'} component={Person}/>
                     <Route path={'/detail'} component={Detail}/>
-                    <Redirect to={'/home'}/>
+                    <Redirect from={'/'} to={'/home'}/>
                 </Switch>
             </div>
         </LocaleProvider>

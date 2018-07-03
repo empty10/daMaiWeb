@@ -8,10 +8,9 @@ class Detail extends React.Component {
     }
 
     render() {
-
         return <div className='performBd'>
             <div className='headerBox'>
-                <img src="../../static/images/singer.jpg" alt=""/>
+                <img src="../static/images/singer.jpg" alt=""/>
                 <p className='title'>CHARLIE PUTH VOICENOTES TOUR HONG KONG </p>
                 <p className='city'>香港</p>
                 <p className='price'>

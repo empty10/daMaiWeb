@@ -1,4 +1,5 @@
 import {createStore} from 'redux'
-import render from './render/index'
-let  store=createStore(render);
-export  default  store;
+import reducer from './reducer/index'
+
+let store = createStore(reducer);
+export default store;

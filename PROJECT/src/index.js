@@ -15,12 +15,14 @@ import Detail from "./store/routes/Detail";
 render(<Provider store={store}>
     <HashRouter>
         <LocaleProvider locale={zh_CN}>
-            <Switch>
-                <Route path={'/home'} exact component={Home}/>
-                <Route path={'/personal'} component={Person}/>
-                <Route path={'/detail'} component={Detail}/>
-                <Redirect to={'/home'}/>
-            </Switch>
+            <div className={'container'}>
+                <Switch>
+                    <Route path={'/home'} exact component={Home}/>
+                    <Route path={'/personal'} component={Person}/>
+                    <Route path={'/detail'} component={Detail}/>
+                    <Redirect to={'/home'}/>
+                </Switch>
+            </div>
         </LocaleProvider>
     </HashRouter>
 </Provider>, root);

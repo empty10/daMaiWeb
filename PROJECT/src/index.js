@@ -11,18 +11,19 @@ import './static/css/reset.min.css';
 import Home from "./routes/Home";
 import Person from "./routes/Person";
 import Detail from "./routes/Detail";
+import Login from "./routes/Login";
 
-render(<Provider store={store}>
+render(
     <HashRouter>
         <LocaleProvider locale={zh_CN}>
             <div className={'container'}>
                 <Switch>
                     {/*<Route path={'/home'} exact component={Home}/>*/}
                     {/*<Route path={'/personal'} component={Person}/>*/}
-                    <Route path={'/'} component={Detail}/>
+                    <Route path={'/login'} component={Login}/>
                     {/*<Redirect to={'/home'}/>*/}
                 </Switch>
             </div>
         </LocaleProvider>
     </HashRouter>
-</Provider>, root);
+, root);

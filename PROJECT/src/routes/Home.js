@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import NavFixed from "../component/NavFixed";
+//import NavFixed from "../component/NavFixed";
 import SearchBar from '../component/SearchBar'
 
 class Home extends React.Component {
@@ -12,7 +12,7 @@ class Home extends React.Component {
         return <div>
             aaa
             <SearchBar/>
-            <NavFixed/>
+           {/* <NavFixed/>*/}
         </div>
     }
 }

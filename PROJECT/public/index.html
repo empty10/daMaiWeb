@@ -3,9 +3,26 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
-    <title>React App</title>
+    <title>大麦网</title>
 </head>
 <body>
+<script>
+    ;(function anonymous() {
+        function computed() {
+            let HTML = document.documentElement,
+                winW = HTML.clientWidth,
+                desW = 414;
+            let fontBase = winW / 414 * 100;
+            if (winW >= desW) {
+                HTML.style.fontSize = '100px';
+                return;
+            }
+            HTML.style.fontSize = fontBase + 'px';
+        }
+        computed();
+        window.addEventListener('resize', computed, false);
+    })();
+</script>
 <div id="root"></div>
 </body>
 </html>

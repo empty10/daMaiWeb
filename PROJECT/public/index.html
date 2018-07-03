@@ -12,7 +12,7 @@
             let HTML = document.documentElement,
                 winW = HTML.clientWidth,
                 desW = 414,
-                fontBase=winW / 414 * 100;
+                fontBase=winW / desW * 100;
             if (winW >= desW) {
                 HTML.style.fontSize =fontBase+ '100px';
                 return;

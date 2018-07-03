@@ -8,7 +8,7 @@ class Person extends React.Component {
 
     render() {
         return <div>
-            Detail
+            person
         </div>
     }
 }

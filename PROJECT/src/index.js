@@ -8,13 +8,17 @@ import {LocaleProvider} from 'antd';
 import zh_CN from 'antd/lib/locale-provider/zh_CN';
 //less
 import './static/less/reset.min.css'
+import Home from "./store/routes/Home";
+import Person from "./store/routes/Person";
+import Detail from "./store/routes/Detail";
 
 render(<Provider store={store}>
     <HashRouter>
         <LocaleProvider locale={zh_CN}>
             <Switch>
-                <Route path={'/home'} exact/>
-                <Route path={'/personal'}/>
+                <Route path={'/home'} exact component={Home}/>
+                <Route path={'/personal'} component={Person}/>
+                <Route path={'/detail'} component={Detail}/>
             </Switch>
         </LocaleProvider>
     </HashRouter>

@@ -26,7 +26,8 @@ render(
                 <Switch>
                     {/*<Route path={'/home'} exact component={Home}/>*/}
                     {/*<Route path={'/personal'} component={Person}/>*/}
-                    <Route path={'/'} component={Login}/>
+                    <Route path={'/personal/login'} component={Login}/>
+                    <Route path={'/personal/register'} component={Rest}/>
                     {/*<Redirect to={'/home'}/>*/}
                 </Switch>
             </div>

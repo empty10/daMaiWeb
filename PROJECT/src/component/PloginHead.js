@@ -26,12 +26,15 @@ const options = [{
 export default class PloginHead extends React.Component {
     constructor(props,context) {
         super(props,context);
+       this.state={
+           flag1:false
+       }
     }
 
     render() {
         return <section className='loginHeadBox'>
             <img src="//gw.alicdn.com/tfs/TB1bx8NXlfH8KJjy1XbXXbLdXXa-300-138.png" alt=""/>
-            <div className='phoneName clearfix'><span>+86<Icon type='down'></Icon></span><input type="text" placeholder='请输入手机号码'/></div>
+            <div className='phoneName clearfix'><span onClick={this.clicknine}>+86<Icon type='down'></Icon></span><input type="text" placeholder='请输入手机号码'/></div>
             {/*<InputGroup compact>
                 <Select defaultValue="+86">
                     <Option value="+86">+86</Option>
@@ -41,5 +44,11 @@ export default class PloginHead extends React.Component {
             </InputGroup>*/}
 
         </section>;
+    }
+    clicknine=()=>{
+        this.setState({
+            flag1:!this.state.flag1
+        })
+
     }
 }

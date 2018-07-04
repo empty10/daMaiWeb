@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import '../static/css/showtimes.less';
 import {Icon} from 'antd';
 
-class ShowsTime extends React.Component {
+class BuyNow extends React.Component {
     constructor(props,context) {
         super(props,context);
     }
@@ -50,10 +50,10 @@ class ShowsTime extends React.Component {
             </div>
 
             <div className='panel-footer'>
-                立即购买
+                立即付款
             </div>
         </div>;
     }
 }
 
-export default connect( )(ShowsTime);
+export default connect( )(BuyNow);

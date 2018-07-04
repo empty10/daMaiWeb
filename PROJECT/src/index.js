@@ -12,7 +12,7 @@ import './static/css/reset.min.css';
 import Home from "./routes/Home";
 import Person from "./routes/Person";
 import Detail from "./routes/Detail";
-import ShowsTime from "./routes/ShowsTime";
+import BuyNow from "./routes/BuyNow";
 
 render(<Provider store={store}>
     <HashRouter>
@@ -22,7 +22,7 @@ render(<Provider store={store}>
                     {/*<Route path={'/home'} exact component={Home}/>*/}
                     {/*<Route path={'/personal'} component={Person}/>*/}
                     {/*<Route path={'/'} component={Detail}/>*/}
-                    <Route path={'/'} component={ShowsTime}/>
+                    <Route path={'/'} component={BuyNow}/>
 
                     {/*<Redirect to={'/home'}/>*/}
                 </Switch>

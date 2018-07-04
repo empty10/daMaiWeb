@@ -1,10 +1,10 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {Switch,Redirect,Route} from 'react-router-dom'
-import PloginHead from '../component/PloginHead';
+
 import LoginMess from './login/LoginMess'
 import LoginOpen from './login/LoginOpen'
-import PloginOpen from '../component/PloginOpen'
+
 import '../static/css/common.less';
 import '../static/css/loginHeadBox.less';
 import '../static/css/PdragFooter.less';

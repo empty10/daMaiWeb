@@ -4,6 +4,8 @@ import {Switch,Redirect,Route} from 'react-router-dom'
 import PloginHead from '../component/PloginHead';
 import LoginMess from './login/LoginMess'
 import LoginOpen from './login/LoginOpen'
+import PloginOpen from '../component/PloginOpen'
+import '../static/css/common.less'
 
 export default class Login extends React.Component {
     constructor(props,context) {
@@ -17,8 +19,7 @@ export default class Login extends React.Component {
                  <Route path='/login/mess' component={LoginMess}></Route>
                  <Route path='/login/open' component={LoginOpen}></Route>
              </Switch>
-
-
+                <PloginOpen/>
         </section>;
     }
 }

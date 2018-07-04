@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux"
 import '../static/css/loginHeadBox.less'
-import { Icon } from 'antd';
+import {Icon} from 'antd'
 
 /*
 const InputGroup = Input.Group;
@@ -31,7 +31,7 @@ export default class PloginHead extends React.Component {
     render() {
         return <section className='loginHeadBox'>
             <img src="//gw.alicdn.com/tfs/TB1bx8NXlfH8KJjy1XbXXbLdXXa-300-138.png" alt=""/>
-            <div className='phoneName clearfix'><span>+86<Icon type={'down'}></Icon></span><input type="text" placeholder='请输入手机号码'/></div>
+            <div className='phoneName clearfix'><span>+86<Icon type='down'></Icon></span><input type="text" placeholder='请输入手机号码'/></div>
             {/*<InputGroup compact>
                 <Select defaultValue="+86">
                     <Option value="+86">+86</Option>

@@ -12,6 +12,12 @@ import Home from "./routes/Home";
 import Person from "./routes/Person";
 import Detail from "./routes/Detail";
 import Login from "./routes/Login";
+import Rest from "./routes/regirect/Rest";
+import RestAfter from "./routes/regirect/RestAfter";
+import Regirect from "./routes/Regirect";
+import PersonalList from "./routes/restAfter/PersonalList";
+import LoginMess from "./routes/login/LoginMess";
+import LoginOpen from "./routes/login/LoginOpen";
 
 render(
     <HashRouter>
@@ -20,7 +26,7 @@ render(
                 <Switch>
                     {/*<Route path={'/home'} exact component={Home}/>*/}
                     {/*<Route path={'/personal'} component={Person}/>*/}
-                    <Route path={'/login'} component={Login}/>
+                    <Route path={'/'} component={Login}/>
                     {/*<Redirect to={'/home'}/>*/}
                 </Switch>
             </div>

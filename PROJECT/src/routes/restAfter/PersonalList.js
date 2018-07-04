@@ -9,7 +9,7 @@ export default class PersonalList extends React.Component {
         return <div>
             <Switch>
                 <Route path='/personal/list' component={PersonalList}></Route>
-                <Route path='/personal' component={PersonalList}></Route>
+                <Route path='/personal/' component={PersonalList}></Route>
                 {/*<Route path='/personal/list'></Route>*/}
 
             </Switch>

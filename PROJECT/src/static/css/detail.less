@@ -1,167 +1,208 @@
-.performBd {
-  background-color: rgba(45, 45, 45, 0.12);
-  //头部区域
-  .headerBox {
-    position: relative;
-    width: 4.14rem;
-    height: 2.1rem;
-    border: 1rem;
-    background-color: #FFFFFF;
 
-    .back{
-      position: absolute;
-      top:0;
-      left: 0;
+.perform {
+  .performPage {
+    background-color: rgba(45, 45, 45, 0.09);
+    //头部区域
+    .headerBox {
+      position: relative;
       width: 4.14rem;
-      height: 1.5rem;
-      background: orange;
-    }
+      height: 2.1rem;
+      border: 1rem;
+      background-color: #FFFFFF;
 
-    .itemBox{
-      position:absolute ;
-      top:.3rem;
-      left: .2rem;
-      width: 4.2rem;
-      height: 1.7rem;
-      overflow: hidden;
-      .pic{
-        width: 1.2rem;
-        height: 1.6rem;
-        background-color: aqua;
-        img{
-          width: 100%;
-          height: 100%;
+      .bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4.14rem;
+        height: 1.5em;
+        background-size: 200% auto;
+        .bg-blur {
+          top: 0;
+          left: 0;
+          width: 4.14rem;
+          height: 1.5rem;
+          background: url("https://pimg.dmcdn.cn/perform/project/1563/156385_n.jpg?_t=1530166503931?1530547884494") no-repeat;
+          background-size: 200% auto;
+          -webkit-filter: blur(5px);
+          -ms-filter: blur(5px);
+          filter: blur(5px);
+          box-shadow: 0 0 5px black;
         }
       }
 
-      .title{
+      .itemBox {
         position: absolute;
-        top:0;
-        left: 1.3rem;
-        color: #FFF;
-        font-family: '微软雅黑';
-        font-size: .18rem;
-        width: 2.55rem;
-        height: .42rem;
-      }
-      .city{
-        position: absolute;
-        top:.6rem;
-        left: 1.3rem;
-        font-size: .2rem;
-        color: #FFFFFF;
-      }
-      .price{
-        position: absolute;
-        top:1.2rem;
-        left: 1.3rem;
-        font-size: .25rem;
-        font-weight: bold;
-        color: red;
-        .priceUnit{
-          color: rgba(0, 0, 0, 0.21);
-          font-size: .15rem;
+        top: .3rem;
+        left: .2rem;
+        width: 4.2rem;
+        height: 1.7rem;
+        overflow: hidden;
+        .pic {
+          width: 1.2rem;
+          height: 1.6rem;
+          img {
+            width: 100%;
+            height: 100%;
+          }
         }
-      }
-    }
-  }
 
-  .holdTime {
-    position: relative;
-    width: 4.02rem;
-    height: .2rem;
-    font-size: .14rem;
-    border-top: 1px solid rgba(34, 34, 34, 0.11);
-    border-bottom: 1px solid rgba(34, 34, 34, 0.13);
-    padding: .152rem .148rem;
-    background-color: #FFFFFF;
-  }
-  .holdPlace {
-    position: relative;
-    width: 4.02rem;
-    height: .2rem;
-    font-size: .15rem;
-    border-bottom: .01rem;
-    padding: .152rem .148rem;
-    border-bottom: 1px solid rgba(34, 34, 34, 0.13);
-    background-color: #FFFFFF;
-  }
-  .introduce{
-    margin: .11rem 0;
-    position: relative;
-    width: 100%;
-    height: 1.5rem;
-    border-bottom: .01rem;
-    border-top: .01rem;
-    background-color: #FFFFFF;
-    .desTitle{
-      position: absolute;
-      top:.1rem;
-      left: .2rem;
-      font-size: .2rem;
-      font-weight: bold;
-    }
-    .desShort{
-      position: absolute;
-      top:.5rem;
-      left: .2rem;
-    }
-    .desMore{
-      position: absolute;
-      top:1rem;
-      font-size: .2rem;
-      width: 100%;
-      height: .5rem;
-      text-align: center;
-      a{
-        color: rgba(231, 24, 33, 0.77);
-      }
-    }
-  }
-  .noticeOfPurchase{
-    position: relative;
-    width: 100%;
-    height: 2.38rem;
-    border-top-width: .01rem;
-    border-bottom-width: .01rem;
-    background-color: #FFFFFF;
-
-    .noticeTitle{
-      position: absolute;
-      left: .2rem;
-      top:.1rem;
-      font-size: .2rem;
-      font-weight: bold;
-      width: 3.8rem;
-      height: .54rem;
-    }
-    .infoPurchase{
-      position: absolute;
-      top:.5rem;
-      left: .3rem;
-      font-size: .1rem;
-
-      .noticeItem{
-        font-size: .1rem;
-        .noticeTitle{
-          font-size: .1rem;
+        .title {
+          position: absolute;
+          top: 0;
+          left: 1.3rem;
+          color: #FFF;
+          font-family: '微软雅黑';
+          font-size: .18rem;
+          width: 2.55rem;
+          height: .42rem;
+        }
+        .city {
+          position: absolute;
+          top: .6rem;
+          left: 1.3rem;
+          font-size: .2rem;
+          color: #FFFFFF;
+        }
+        .price {
+          position: absolute;
+          top: 1.3rem;
+          left: 1.3rem;
+          font-size: .25rem;
           font-weight: bold;
-        }
-        .noticeCont{
-          font-size: .1rem;
+          color: #ff1268;
+          .priceUnit {
+            color: rgba(0, 0, 0, 0.21);
+            font-size: .15rem;
+          }
         }
       }
     }
-    .noticeMore{
-      position: absolute;
-      top:1.8rem;
-      font-size: .2rem;
-      width: 100%;
+
+    .deHoldTime {
+      position: relative;
+      width: 4.14rem;
       height: .5rem;
-      text-align: center;
-      a{
-        color: rgba(231, 24, 33, 0.77);
+      font-size: .14rem;
+      border-top: 1px solid rgba(34, 34, 34, 0.11);
+      border-bottom: 1px solid rgba(34, 34, 34, 0.13);
+      padding: .152rem .148rem;
+      background-color: #FFF;
+    }
+    .deHoldPlace {
+      position: relative;
+      width: 4.14rem;
+      height: .5rem;
+      font-size: .15rem;
+      border-bottom: .01rem;
+      padding: .152rem .148rem;
+      border-bottom: 1px solid rgba(34, 34, 34, 0.13);
+      background-color: #FFF;
+    }
+    .introduce {
+      margin: .11rem 0;
+      position: relative;
+      width: 100%;
+      height: 1.3rem;
+      border-bottom: .01rem;
+      border-top: .01rem;
+      background-color: #FFFFFF;
+      .desTitle {
+        position: absolute;
+        top: .1rem;
+        left: .2rem;
+        font-size: .2rem;
+        font-weight: bold;
       }
+      .desShort {
+        position: absolute;
+        top: .5rem;
+        left: .2rem;
+      }
+      .desMore {
+        position: absolute;
+        top: 1rem;
+        font-size: .2rem;
+        width: 100%;
+        height: .5rem;
+        text-align: center;
+        a {
+          color: #ff1268;
+        }
+      }
+    }
+    .noticeOfPurchase {
+      width: 100%;
+      height: 1.2rem;
+      border-top-width: .01rem;
+      border-bottom-width: .01rem;
+      background-color: #FFFFFF;
+
+      .noticeTitle {
+        font-size: .2rem;
+        font-weight: bold;
+        width: 100%;
+        height: -.5rem;
+        vertical-align: center;
+        padding: 0.1rem .1rem;
+      }
+      .infoPurchase {
+        display: inline;
+        left: .2rem;
+        list-style: none;
+        .noticeItem {
+          .noticeTitle {
+            color: lightgray;
+          }
+          .noticeCont {
+            font-size: .15rem;
+          }
+        }
+      }
+      .noticeMore {
+        font-size: .2rem;
+        width: 100%;
+        vertical-align: center;
+        //height: .5rem;
+        text-align: center;
+        a {
+          color: #ff1268;
+        }
+        margin-top: .1rem;
+        padding: .1rem .1rem;
+      }
+    }
+  }
+  .navBottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 4.14rem;
+    height: .55rem;
+    font-size: .15rem;
+
+    .wantSee {
+      float: left;
+      width: .54rem;
+      height: .55rem;
+      text-align: center;
+      font-size: 0.2rem;
+      .desc{
+        box-sizing: border-box;
+        font-size: 0.12rem;
+      }
+    }
+    .purchaseNow {
+      float: left;
+      width: 3.6rem;
+      height: .55rem;
+      box-sizing: border-box;
+      font-size: .2rem;
+      color:#fff;
+      padding-top: .2rem;
+      vertical-align: center;
+      text-align: center;
+      background: linear-gradient(left, #ff34bf, #ff2148);
     }
   }
 }

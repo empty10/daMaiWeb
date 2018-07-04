@@ -5,13 +5,11 @@ const express = require('express'),
     utils = require('../utils/utils');
 
 route.post('/add', (req, res)=>{
-    let personID = req.session.personID,
-        {projectId} = req.body;
-    projectId = parseFloat(projectId);
+    let personID = req.session.personID;
 
     //=>已经登录状态下，把信息直接存储到JSON中即可
     if (personID) {
-        utils.ADD_ORDER(req, res, projectId).then(() => {
+        utils.ADD_ORDER(req, res, req.body).then(() => {
             res.send({code: 0, msg: 'OK!'});
         }).catch(() => {
             res.send({code: 1, msg: 'NO!'});
@@ -19,10 +17,9 @@ route.post('/add', (req, res)=>{
         return;
     }
 
-    //TODO 未登录：data,dataTime等信息没有
     //=>未登录状态下，临时存储到SESSION中，等到下一次登录成功，直接把信息存储到文件中（并且清空SESSION中的信息）
     !req.session.orderList ? req.session.orderList = [] : null;
-    req.session.orderList.push(projectId);
+    req.session.orderList.push(req.body);
     res.send({code: 0, msg: 'OK!'});
 
 });

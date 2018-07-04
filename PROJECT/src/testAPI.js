@@ -142,13 +142,13 @@ export default axios;
 // });
 
 //加入收藏
-let result = axios.post('/favorite/add',{
-    projectId:1
-}).then(res=>{
-    console.log(res);
-}).catch(res=>{
-    console.log(res);
-});
+// let result = axios.post('/favorite/add',{
+//     projectId:1
+// }).then(res=>{
+//     console.log(res);
+// }).catch(res=>{
+//     console.log(res);
+// });
 
 //收藏列表
 // let result = axios.get('/favorite/list').then(res=>{
@@ -156,3 +156,6 @@ let result = axios.post('/favorite/add',{
 // }).catch(res=>{
 //     console.log(res);
 // });
+
+
+

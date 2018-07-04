@@ -1,10 +1,10 @@
 const {writeFile} = require('../utils/promiseFS'),
     ORDER_PATH = './json/order.json';
 
-function ADD_ORDER(req, res, projectId) {
+function ADD_ORDER(req, res, item) {
     //=>把某一个商品存储到JSON中，实现加入购物车的功能
 
-    let {data, dataTime, week, count} = req.body;
+    let {projectId, data, dataTime, week, count} = item;
 
     let personID = req.session.personID,
         orderDetail = {

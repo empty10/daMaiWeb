@@ -9,7 +9,7 @@ function add_temp_store(req, res) {
     let orderList = req.session.orderList || [];
     if (orderList.length === 0) return;
     orderList.map(item => {
-        return utils.ADD_ORDER(req, res, parseFloat(item));
+        return utils.ADD_ORDER(req, res, item);
     });
     Promise.all(orderList).then(() => {
         //...

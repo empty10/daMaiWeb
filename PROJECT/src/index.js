@@ -12,12 +12,14 @@ import Home from "./routes/Home";
 import Person from "./routes/Person";
 import Detail from "./routes/Detail";
 
+import ListShow from "./routes/showList/ListShow";
+
 render(<Provider store={store}>
     <HashRouter>
         <LocaleProvider locale={zh_CN}>
             <div className={'container'}>
                 <Switch>
-                    <Route path={'/home'} exact component={Home}/>
+                    <Route path={'/home'} exact component={ListShow}/>
                     <Route path={'/personal'} component={Person}/>
                     <Route path={'/detail'} component={Detail}/>
                     <Redirect from={'/'} to={'/home'}/>

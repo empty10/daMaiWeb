@@ -9,8 +9,10 @@ export default class Nav extends React.Component {
 
     render() {
         return <div className={'nav-fixed'}>
-            <NavLink to={'/'}><i className={'iconfont icon-damailogo'}></i><span>首页</span></NavLink>
-            <NavLink to={'/'}><i className={'iconfont icon-wodedamaijihuo'}></i><span>我的</span></NavLink>
+            <div className={'con-axis clearfix'}>
+            <NavLink to={'/home'} activeClassName='active'><i className={'iconfont icon-damailogo'}></i><span>首页</span></NavLink>
+            <NavLink to={'/personal'} activeClassName='active'><i className={'iconfont icon-wodedamaijihuo'}></i><span>我的</span></NavLink>
+            </div>
         </div>
     }
 }

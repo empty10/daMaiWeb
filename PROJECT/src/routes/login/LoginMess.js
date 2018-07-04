@@ -15,7 +15,7 @@ export default class LoginMess extends React.Component {
             <input type="text" placeholder='请输入密码'/>
             <button type='danger'>登录</button>
             <div className='spanL'><span className='spanLeft'><a href="javascript:;">账号密码登录</a></span>
-                <span className='spanRight'><Link to='/personal/register'>新用户注册</Link></span></div>
+                <span className='spanRight'><Link to=''>新用户注册</Link></span></div>
         </section>;
     }
 }

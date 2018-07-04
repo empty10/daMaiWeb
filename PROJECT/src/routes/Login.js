@@ -4,6 +4,7 @@ import {Switch,Redirect,Route} from 'react-router-dom'
 
 import LoginMess from './login/LoginMess'
 import LoginOpen from './login/LoginOpen'
+import Rest from './regirect/Rest'
 
 import '../static/css/common.less';
 import '../static/css/loginHeadBox.less';
@@ -12,19 +13,27 @@ import '../static/css/loginMess.less'
 import {Link} from 'react-router-dom'
 import {Icon} from 'antd'
 
+let dataFooter=[{id:86,title:'+86中国大陆地区'},{id:852,title:'+852中国香港地区'},{id:853,title:'+853中国澳门地区'},{id:886,title:'+886中国台湾地区'}]
+
+
 export default class Login extends React.Component {
     constructor(props,context) {
         super(props,context);
         this.state={
-            opacity:1
+            opacity:0,
+            ID:86
         }
     }
-
     render() {
+        let {ID}=this.state;
         return <section>
             <div className='loginHeadBox'>
                 <img src="//gw.alicdn.com/tfs/TB1bx8NXlfH8KJjy1XbXXbLdXXa-300-138.png" alt=""/>
-                <div className='phoneName clearfix'><span onClick={this.clicknine}>+86<Icon type='down'></Icon></span><input type="text" placeholder='请输入手机号码'/></div></div>
+                <div className='phoneName clearfix'><span onClick={()=>{
+                this.setState({
+                    opacity:1
+                })}
+                }>+{ID}<Icon type='down'></Icon></span><input type="text" placeholder='请输入手机号码'/></div></div>
             <div className='loginMessBox'>
                 <input type="text" placeholder='请输入密码'/>
                 <button type='danger'>登录</button>
@@ -39,10 +48,10 @@ export default class Login extends React.Component {
                     })  }
                 }>确定</a></span>
                 <ul className='selectBottom'>
-                    <li>+86中国大陆地区</li>
-                    <li>+852中国香港地区</li>
-                    <li>+853中国澳门地区</li>
-                    <li>+886中国台湾地区</li>
+                    {dataFooter.map((item,index)=>{
+                        let {id,title}=item;
+                           return <li key={index} onClick={this.selectTop.bind(this,id)}>{title}</li>
+                    })}
                 </ul>
             </div>;
         </section>;
@@ -50,6 +59,11 @@ export default class Login extends React.Component {
     selectBootom=()=>{
         this.setState({
             opacity:0
+        })
+    }
+    selectTop=(id)=>{
+        this.setState({
+            ID:id
         })
     }
 }

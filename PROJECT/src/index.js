@@ -22,7 +22,7 @@ render(<Provider store={store}>
                 <Switch>
                     {/*<Route path={'/home'} exact component={Home}/>*/}
                     {/*<Route path={'/personal'} component={Person}/>*/}
-                    <Route path={'/'} component={Detail}/>
+                    <Route path={'/?=projectId=5'} component={Detail}/>
                     {/*<Route path={'/'} component={BuyNow}/>*/}
                     {/*<Route path={'/'} component={ChooseOk}/>*/}
 

@@ -1,0 +1,2 @@
+//product
+export const QUERY_PRODUCT_INFO='QUERY_PRODUCT_INFO';

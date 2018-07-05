@@ -9,24 +9,23 @@ class Detail extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state=null;
-
     }
 
-    // async componentDidMount(){
-    //     let {location:{search}}=this.props,
-    //         {projectId=0}=Qs.parse(search.substr(1)||{});
-    //     let result=await queryInfo(projectId);
-    //     if(parseFloat(result.code)===0){
-    //         this.setState({
-    //             data:result.data
-    //         })
-    //     }
-    // }
+    async componentDidMount(){
+        let {location:{search}}=this.props,
+            {projectId=0}=Qs.parse(search.substr(1)||{});
+        let result=await queryInfo(projectId);
+        if(parseFloat(result.code)===0){
+            this.setState({
+                data:result.data
+            })
+        }
+    }
 
     render() {
-        // let {data}=this.state;
-        // if(!data) return'';
-        // let {}=data;
+        let {data}=this.state;
+        if(!data) return'';
+        let {name,time,city,address,price,pic,desc,duration,joinTime,limitDesc,explain}=data;
 
         return <div className='perform'>
             <div className='performPage'>
@@ -36,24 +35,22 @@ class Detail extends React.Component {
                         </div>
                     </div>
                     <div className='itemBox'>
-                        <div className='pic'><img
-                            src="https://pimg.dmcdn.cn/perform/project/1563/156385_n.jpg?_t=1530166503931?1530547884494"
-                            alt=""/></div>
-                        <p className='title'>CHARLIE PUTH VOICENOTES TOUR HONG KONG </p>
-                        <p className='city'>香港</p>
+                        <div className='pic'><img src={pic}  alt=""/></div>
+                        <p className='title'>{name} </p>
+                        <p className='city'>{city}</p>
                         <p className='price'>
-                            540-1350
+                            {price}
                             <span className='priceUnit'> 元</span>
                         </p>
                     </div>
                 </div>
                 <div className='deHoldTime'>
-                    <div className='deLeft'>2018.11.04 20:00</div>
+                    <div className='deLeft'>{time}</div>
                 </div>
-                <div className='deHoldPlace'>亚洲国际博览馆</div>
+                <div className='deHoldPlace'>{address}</div>
                 <div className='introduce'>
                     <h1 className='desTitle'> 介绍</h1>
-                    <div className='desShort'>Charlie Puth于11月4日假亚洲国际博览馆Hall 10举行只此一场的演出！</div>
+                    <div className='desShort'>{desc}</div>
                     {/*<div className='desMore'>*/}
                         {/*<a href=""> 更多图文详情</a>*/}
                     {/*</div>*/}
@@ -64,22 +61,22 @@ class Detail extends React.Component {
                         <li className='noticeItem'>
                             <span className='noticeInfo'>演出时长</span>
                             &nbsp;&nbsp;&nbsp;&nbsp;
-                            <span className='noticeCont'>约120分钟（以现场时间为准）</span>
+                            <span className='noticeCont'>{duration}</span>
                         </li>
                         <li className='noticeItem'>
                             <span className='noticeInfo'>入场时间</span>
                             &nbsp;&nbsp;&nbsp;&nbsp;
-                            <span className='noticeCont'>演出前约30分钟</span>
+                            <span className='noticeCont'>{joinTime}</span>
                         </li>
                         <li className='noticeItem'>
                             <span className='noticeInfo'>限购说明</span>
                             &nbsp;&nbsp;&nbsp;&nbsp;
-                            <span className='noticeCont'>选座购买每单限6张，立即购买每单限20张</span>
+                            <span className='noticeCont'>{limitDesc}</span>
                         </li>
                         <li className='noticeItem'>
                             <span className='noticeInfo'>儿童说明</span>
                             &nbsp;&nbsp;&nbsp;&nbsp;
-                            <span className='noticeCont'>1.2米以上凭成人票入场，1.2米以下谢绝入场</span>
+                            <span className='noticeCont'>{explain}</span>
                         </li>
                     </div>
                     {/*<div className='noticeMore'>*/}

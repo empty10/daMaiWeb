@@ -18,10 +18,7 @@ export default class RestAfter extends React.Component {
                 <li><Icon type='edit'></Icon><span>意见反馈<Icon type='right'></Icon></span><div></div></li>
             </ul>
             <div className='restFooter'>退出登录</div>
-
-
-
-
         </section>;
+        console.log(2);
     }
 }

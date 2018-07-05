@@ -13,6 +13,7 @@ import Home from "./routes/Home";
 import Person from "./routes/Person";
 import Detail from "./routes/Detail";
 import BuyNow from "./routes/BuyNow";
+import ChooseOk from "./routes/ChooseOk";
 
 render(<Provider store={store}>
     <HashRouter>
@@ -21,8 +22,9 @@ render(<Provider store={store}>
                 <Switch>
                     {/*<Route path={'/home'} exact component={Home}/>*/}
                     {/*<Route path={'/personal'} component={Person}/>*/}
-                    {/*<Route path={'/'} component={Detail}/>*/}
-                    <Route path={'/'} component={BuyNow}/>
+                    <Route path={'/'} component={Detail}/>
+                    {/*<Route path={'/'} component={BuyNow}/>*/}
+                    {/*<Route path={'/'} component={ChooseOk}/>*/}
 
                     {/*<Redirect to={'/home'}/>*/}
                 </Switch>

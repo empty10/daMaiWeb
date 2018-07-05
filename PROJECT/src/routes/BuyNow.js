@@ -1,7 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import '../static/css/showtimes.less';
+import '../static/css/buynow.less';
 import {Icon} from 'antd';
+
 
 class BuyNow extends React.Component {
     constructor(props,context) {

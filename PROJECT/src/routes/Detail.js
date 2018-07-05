@@ -1,19 +1,39 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import Qs from 'qs';
 import '../static/css/detail.less';
 import {Icon} from 'antd';
+import {queryInfo} from '../api/product';
 
 class Detail extends React.Component {
     constructor(props, context) {
         super(props, context);
+        this.state=null;
+
     }
 
+    // async componentDidMount(){
+    //     let {location:{search}}=this.props,
+    //         {projectId=0}=Qs.parse(search.substr(1)||{});
+    //     let result=await queryInfo(projectId);
+    //     if(parseFloat(result.code)===0){
+    //         this.setState({
+    //             data:result.data
+    //         })
+    //     }
+    // }
+
     render() {
+        // let {data}=this.state;
+        // if(!data) return'';
+        // let {}=data;
+
         return <div className='perform'>
             <div className='performPage'>
                 <div className='headerBox'>
                     <div className='bg'>
-                        <div className='bg-blur'></div>
+                        <div className='bg-blur'>
+                        </div>
                     </div>
                     <div className='itemBox'>
                         <div className='pic'><img
@@ -42,19 +62,23 @@ class Detail extends React.Component {
                     <h1 className='noticeTitle'>购票须知</h1>
                     <div className='infoPurchase '>
                         <li className='noticeItem'>
-                            <span className='noticeTitle'>演出时长</span>
+                            <span className='noticeInfo'>演出时长</span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
                             <span className='noticeCont'>约120分钟（以现场时间为准）</span>
                         </li>
                         <li className='noticeItem'>
-                            <span className='noticeTitle'>入场时间</span>
+                            <span className='noticeInfo'>入场时间</span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
                             <span className='noticeCont'>演出前约30分钟</span>
                         </li>
                         <li className='noticeItem'>
-                            <span className='noticeTitle'>限购说明</span>
+                            <span className='noticeInfo'>限购说明</span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
                             <span className='noticeCont'>选座购买每单限6张，立即购买每单限20张</span>
                         </li>
                         <li className='noticeItem'>
-                            <span className='noticeTitle'>儿童说明</span>
+                            <span className='noticeInfo'>儿童说明</span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
                             <span className='noticeCont'>1.2米以上凭成人票入场，1.2米以下谢绝入场</span>
                         </li>
                     </div>

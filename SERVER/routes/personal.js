@@ -17,7 +17,7 @@ function add_temp_store(req, res) {
     req.session.orderList = [];
 }
 
-route.post('/register', (req, res) => {
+route.post('/person', (req, res) => {
     //=>先准备一套完成的新用户信息模型
     let personInfo = {
         id: req.personalDATA.length === 0 ? 1 : (parseFloat(req.personalDATA[req.personalDATA.length - 1].id) + 1),//=>用户的ID是在当前最大ID基础上自动累加1的
@@ -64,7 +64,7 @@ route.post('/login', (req, res) => {
         //=>支持用户名传递：姓名、邮箱、电话
         return item.userName === userName && item.pwd === pwd;
     });
-
+    console.log(item);
     if (item) {
         //=>登录成功：把当前登录用户的ID存储到SESSION上（如果SESSION上有用户信息就代表登录成功，反之没有登录）
         req.session.personID = parseFloat(item.id);

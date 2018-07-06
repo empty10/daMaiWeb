@@ -1,7 +1,33 @@
 import * as TYPES from '../action-types';
+import {queryLogin} from "../../api/register";
 
-let register={
-
+let person={
+   queryBaseInfo(){
+       return {
+           type:TYPES.PERSON_ADD,
+           payload:queryLogin()
+       }
+   }
 };
 
-export default register;
+export default person;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -11,7 +11,7 @@ class Tip extends React.Component {
            this.props.history.push('/personal/login')}
            }>登录</button>
            <button onClick={()=>{
-           this.props.history.push('/personal/rest')}
+           this.props.history.push('/personal/person')}
            }>注册</button>
         </div>;
     }

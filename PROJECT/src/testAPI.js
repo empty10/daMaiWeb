@@ -7,39 +7,41 @@ axios.defaults.transformRequest = (data = {}) => Qs.stringify(data);//把post、
 axios.interceptors.response.use(result => result.data);//响应拦截器：把服务器返回的信息中响应主体的内容拦截返回，以后在then中获取的结果就是主体的内容
 export default axios;
 
-//注册
-// let result = axios.post('/personal/register',{
-//     userName:'lmh',
-//     pwd:'123456789012345678901234'
-// }).then((res)=>{
-//     console.log(res);
-// }).catch((res)=>{
-//     console.log(res);
-// });
+/*//注册
+let result = axios.post('/personal/person',{
+    userName:'lmh',
+     pwd:'123456789012345678901234'
+ }).then((res)=>{
+     console.log(res);
+ }).catch((res)=>{
+    console.log(res);
+ });*/
 
 //登录
-// let result = axios.post('/personal/login',{
-//     userName:'lmh',
-//     pwd:'123456789012345678901234'
-// }).then((res)=>{
-//     console.log(res);
-// }).catch((res)=>{
-//     console.log(res);
-// });
+/*
+let result = axios.post('/personal/login',{
+    userName:'lmh',
+    pwd:'123456789012345678901234'
+}).then((res)=>{
+    console.log(res);
+}).catch((res)=>{
+     console.log(res);
+});
+*/
 
 //登录验证
-// let result = axios.get('/personal/checkLogin').then((res)=>{
-//     console.log(res);
-// }).catch((res)=>{
-//     console.log(res);
-// });
+/*let result = axios.get('/personal/checkLogin').then((res)=>{
+    console.log(res);
+}).catch((res)=>{
+     console.log(res);
+ });*/
 
-// 退出登录
-// let result = axios.get('/personal/logout').then((res)=>{
-//     console.log(res);
-// }).catch((res)=>{
-//     console.log(res);
-// });
+//退出登录
+/* let result = axios.get('/personal/logout').then((res)=>{
+    console.log(res);
+}).catch((res)=>{
+     console.log(res);
+});*/
 
 // 首页搜索
 // let result = axios.get('/homepage/search',{

@@ -15,9 +15,14 @@ class Person extends React.Component {
         }
     }
     async componentDidMount(){
-        let result=await queryCheckLogin();
-       this.state.isLogin=parseFloat(result.code)===0?true:false
-
+        let result=await queryCheckLogin(),
+       isLogin=parseFloat(result.code)===0?true:false;
+        this.setState({isLogin})
+    }
+    async componentWillReceiveProps(){
+        let resylt=await queryCheckLogin(),
+        isLogin=parseFloat(resylt.code)===0?true:false;
+        this.setState({isLogin})
     }
     render() {
         return <div>
@@ -30,12 +35,9 @@ class Person extends React.Component {
                 }
                 }></Route>
                 <Route path='/personal/login' component={Login}></Route>
-                <Route path='/personal/rest' component={Rest}></Route>
+                <Route path='/personal/person' component={Rest}></Route>
                 <Redirect from='/personal' to='/personal/restafter'></Redirect>
-
             </Switch>
-
-
         </div>
     }
 }

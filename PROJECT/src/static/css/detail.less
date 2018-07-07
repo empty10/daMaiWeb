@@ -192,9 +192,16 @@
       height: .55rem;
       text-align: center;
       font-size: 0.2rem;
-      .desc{
+      i.active{}
+      span {
         box-sizing: border-box;
         font-size: 0.12rem;
+      }
+
+      :focus{
+        i.active {
+          background: #ff1268
+        }
       }
     }
     .purchaseNow {
@@ -203,13 +210,15 @@
       height: .55rem;
       box-sizing: border-box;
       font-size: .2rem;
-      color:#fff;
+      color: #fff;
       padding-top: .2rem;
       vertical-align: center;
       text-align: center;
       background: linear-gradient(left, #ff34bf, #ff2148);
     }
   }
+
+
 }
 
 

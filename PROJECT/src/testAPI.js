@@ -141,7 +141,7 @@ export default axios;
 //     console.log(res);
 // });
 
-//加入收藏
+// 加入收藏
 // let result = axios.post('/favorite/add',{
 //     projectId:1
 // }).then(res=>{

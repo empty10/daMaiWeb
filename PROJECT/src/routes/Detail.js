@@ -1,31 +1,48 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import action from '../store/action';
+import {Link} from 'react-router-dom';
 import Qs from 'qs';
 import '../static/css/detail.less';
-import {Icon} from 'antd';
-import {queryInfo} from '../api/product';
+import {Icon,Alert} from 'antd';
+import {queryInfo, addCollection} from '../api/product';
 
 class Detail extends React.Component {
     constructor(props, context) {
         super(props, context);
-        this.state=null;
+        this.state = {
+            data: null,
+            cart: {
+                collected: [],
+                unCollected: []
+            },
+            isCollected: 0    //是否收藏，0未收藏，1已收藏
+        };
     }
 
-    async componentDidMount(){
-        let {location:{search}}=this.props,
-            {projectId=0}=Qs.parse(search.substr(1)||{});
-        let result=await queryInfo(projectId);
-        if(parseFloat(result.code)===0){
+    async componentDidMount() {
+        let {location: {search}} = this.props,
+            {projectId = 0} = Qs.parse(search.substr(1) || {});
+        this.projectId = projectId; //把产品ID挂载到实例上
+        let result = await queryInfo(projectId);
+        if (parseFloat(result.code) === 0) {
+            let {collected, unCollected} = this.props.cart,
+                isCollected = 0;
+            collected.find(item => parseFloat(item.projectId) === parseFloat(projectId)) ? isCollected = 1 : null;
+            unCollected.find(item => parseFloat(item.projectId) === parseFloat(projectId)) ? isCollected = 0 : null;
+
             this.setState({
-                data:result.data
+                data: result.data,
+                isCollected
             })
         }
     }
 
     render() {
-        let {data}=this.state;
-        if(!data) return'';
-        let {name,time,city,address,price,pic,desc,duration,joinTime,limitDesc,explain}=data;
+        let {data, isCollected} = this.state;
+        this.data = data;
+        if (!data) return '';
+        let {name, time, city, address, price, pic, desc, duration, joinTime, limitDesc, explain} = data;
 
         return <div className='perform'>
             <div className='performPage'>
@@ -35,7 +52,7 @@ class Detail extends React.Component {
                         </div>
                     </div>
                     <div className='itemBox'>
-                        <div className='pic'><img src={pic}  alt=""/></div>
+                        <div className='pic'><img src={pic} alt=""/></div>
                         <p className='title'>{name} </p>
                         <p className='city'>{city}</p>
                         <p className='price'>
@@ -52,7 +69,7 @@ class Detail extends React.Component {
                     <h1 className='desTitle'> 介绍</h1>
                     <div className='desShort'>{desc}</div>
                     {/*<div className='desMore'>*/}
-                        {/*<a href=""> 更多图文详情</a>*/}
+                    {/*<a href=""> 更多图文详情</a>*/}
                     {/*</div>*/}
                 </div>
                 <div className='noticeOfPurchase'>
@@ -80,22 +97,43 @@ class Detail extends React.Component {
                         </li>
                     </div>
                     {/*<div className='noticeMore'>*/}
-                        {/*<a href=""> 更多购票须知</a>*/}
+                    {/*<a href=""> 更多购票须知</a>*/}
                     {/*</div>*/}
                 </div>
             </div>
             <div className='navBottom'>
-                <div className='wantSee'>
-                    <Icon type='heart-o'/>
+                <div className='wantSee' onClick={this.collection}>
+                    <Icon type={isCollected === 0 ? 'heart-o' : 'heart'} color={isCollected === 0 ? '' : 'red'}/>
                     <br/>
-                    <span className='desc'>想看</span>
+                    <span>想看</span>
                 </div>
-                <div className='purchaseNow'>
-                    立即购买
-                </div>
+                <Link to='/buynow'>
+                    <div className='purchaseNow' >
+                        选择购票
+                    </div>
+                </Link>
             </div>
         </div>;
     }
+    collection = async ev => {
+        //未想看——>想看状态
+        if (this.state.isCollected === 0) {
+            console.log(this.projectId);
+            let result = await addCollection(this.projectId);
+            console.log(result);
+            if (parseFloat(result.code) === 0) {
+                //通知redux中更新
+                this.props.queryCollection();
+                this.setState({isCollected: 1});
+            }else if(parseFloat(result.code) === 1){
+
+            }
+            return;
+        }
+        //想看状态——>未想看（没有）
+        this.setState({isCollected: 0});
+        this.props.removeCollection(this.data);
+    };
 }
 
-export default connect()(Detail);
+export default connect(state => state.detail, action.detail)(Detail);

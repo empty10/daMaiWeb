@@ -1,5 +1,5 @@
 import React from 'react'
-import {render} from 'react-dom'
+import ReactDOM, {render} from 'react-dom'
 import {Provider} from 'react-redux'
 import store from './store/index'
 import {HashRouter, Switch, Route, Redirect} from 'react-router-dom'
@@ -22,11 +22,12 @@ render(<Provider store={store}>
                 <Switch>
                     {/*<Route path={'/home'} exact component={Home}/>*/}
                     {/*<Route path={'/personal'} component={Person}/>*/}
-                    <Route path={'/?=projectId=5'} component={Detail}/>
-                    {/*<Route path={'/'} component={BuyNow}/>*/}
+                    {/*<Route path={'/'}  component={Detail}/>*/}
+                    <Route path={'/detail'}  component={Detail}/>
+                     <Route path={'/buynow'} component={BuyNow}/>
                     {/*<Route path={'/'} component={ChooseOk}/>*/}
 
-                    {/*<Redirect to={'/home'}/>*/}
+                    {/*<Redirect to={'/Detail'}/>*/}
                 </Switch>
             </div>
         </LocaleProvider>

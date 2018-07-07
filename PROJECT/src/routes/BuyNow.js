@@ -9,8 +9,6 @@ class BuyNow extends React.Component {
         super(props,context);
     }
 
-
-
     render() {
         return <div className='panel'>
             <div className='panel-body'>

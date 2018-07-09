@@ -11,72 +11,79 @@
       background-color: #FFFFFF;
 
       .bg {
-        position: absolute;
+        margin: 0;
+        padding: 0;
+        position: relative;
         top: 0;
         left: 0;
         width: 4.14rem;
-        height: 1.5em;
-        background-size: 200% auto;
-        .bg-blur {
-          top: 0;
-          left: 0;
-          width: 4.14rem;
-          height: 1.5rem;
-          background: url("https://pimg.dmcdn.cn/perform/project/1563/156385_n.jpg?_t=1530166503931?1530547884494") no-repeat;
-          background-size: 200% auto;
-          -webkit-filter: blur(5px);
-          -ms-filter: blur(5px);
-          filter: blur(5px);
-          box-shadow: 0 0 5px black;
-        }
-      }
+        height: 1.5rem;
+        background-size: 300% 300%;
+        background: url("../images/singer.jpg") ;
+        box-sizing:border-box;
+        z-index:1;
+        box-shadow: 0 0 5px black;
 
-      .itemBox {
-        position: absolute;
-        top: .3rem;
-        left: .2rem;
-        width: 4.2rem;
-        height: 1.7rem;
-        overflow: hidden;
-        .pic {
-          width: 1.2rem;
+        &:after{
+          position: absolute;
+          content: '';
+          width:100%;
+          height:100%;
+          background: inherit;
+          filter: blur(20px);
+          z-index: 2;
+        }
+
+        .itemBox {
+          position: absolute;
+          top: .3rem;
+          left: .2rem;
+          width: 3.8rem;
           height: 1.6rem;
-          img {
-            width: 100%;
-            height: 100%;
+          overflow: hidden;
+          z-index: 10;
+          .pic {
+            width: 1.2rem;
+            height: 1.6rem;
+            img {
+              width: 100%;
+              height: 100%;
+            }
           }
-        }
 
-        .title {
-          position: absolute;
-          top: 0;
-          left: 1.3rem;
-          color: #FFF;
-          font-family: '微软雅黑';
-          font-size: .18rem;
-          width: 2.55rem;
-          height: .42rem;
-        }
-        .city {
-          position: absolute;
-          top: .6rem;
-          left: 1.3rem;
-          font-size: .2rem;
-          color: #FFFFFF;
-        }
-        .price {
-          position: absolute;
-          top: 1.3rem;
-          left: 1.3rem;
-          font-size: .25rem;
-          font-weight: bold;
-          color: #ff1268;
-          .priceUnit {
-            color: rgba(0, 0, 0, 0.21);
-            font-size: .15rem;
+          .title {
+            position: absolute;
+            top: 0;
+            left: 1.3rem;
+            color: #FFF;
+            font-family: '微软雅黑';
+            font-size: .18rem;
+            width: 2.55rem;
+            height: .42rem;
+          }
+          .city {
+            position: absolute;
+            top: .6rem;
+            left: 1.3rem;
+            font-size: .2rem;
+            color: #FFF;
+          }
+          .price {
+            position: absolute;
+            top: 1.3rem;
+            left: 1.3rem;
+            font-size: .25rem;
+            font-weight: bold;
+            color: #ff1268;
+            .priceUnit {
+              color: rgba(0, 0, 0, 0.21);
+              font-size: .15rem;
+            }
           }
         }
       }
+
+
     }
 
     .deHoldTime {
@@ -133,7 +140,7 @@
         }
       }
     }
-    .noticeOfPurchase {
+    .noticeOfbuy {
       width: 100%;
       height: 1.2rem;
       border-top-width: .01rem;
@@ -149,7 +156,7 @@
         vertical-align: center;
         padding: 0.1rem .1rem;
       }
-      .infoPurchase {
+      .infobuy {
         position: absolute;
         display: inline;
         left: .15rem;
@@ -184,18 +191,21 @@
     left: 0;
     width: 4.14rem;
     height: .55rem;
-    font-size: .15rem;
+    padding-top: .2rem;
+
+
 
     .wantSee {
       float: left;
       width: .54rem;
       height: .55rem;
+      left: .1rem;
       text-align: center;
-      font-size: 0.2rem;
-      i.active{}
+      font-size: .2rem;
       span {
+
         box-sizing: border-box;
-        font-size: 0.12rem;
+        font-size: 0.15rem;
       }
 
       :focus{
@@ -204,21 +214,19 @@
         }
       }
     }
-    .purchaseNow {
+    .buyNow {
       float: left;
       width: 3.6rem;
       height: .55rem;
       box-sizing: border-box;
       font-size: .2rem;
       color: #fff;
-      padding-top: .2rem;
+      padding-top: .15rem;
       vertical-align: center;
       text-align: center;
       background: linear-gradient(left, #ff34bf, #ff2148);
     }
   }
-
-
 }
 
 

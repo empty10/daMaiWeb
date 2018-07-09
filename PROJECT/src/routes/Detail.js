@@ -39,6 +39,7 @@ class Detail extends React.Component {
     }
 
     render() {
+        console.log(this.state);
         let {data, isCollected} = this.state;
         this.data = data;
         if (!data) return '';
@@ -47,19 +48,22 @@ class Detail extends React.Component {
         return <div className='perform'>
             <div className='performPage'>
                 <div className='headerBox'>
-                    <div className='bg'>
-                        <div className='bg-blur'>
+                    <div className='bg' >
+                        {/*style={{background:`url(${pic}) no-repeat fixed`}}*/}
+                        {/*<div className='bg-blur' >*/}
+                        {/*</div>*/}
+
+                        <div className='itemBox'>
+                            <div className='pic'><img src={pic} alt=""/></div>
+                            <p className='title'>{name} </p>
+                            <p className='city'>{city}</p>
+                            <p className='price'>
+                                {price}
+                                <span className='priceUnit'> 元</span>
+                            </p>
                         </div>
                     </div>
-                    <div className='itemBox'>
-                        <div className='pic'><img src={pic} alt=""/></div>
-                        <p className='title'>{name} </p>
-                        <p className='city'>{city}</p>
-                        <p className='price'>
-                            {price}
-                            <span className='priceUnit'> 元</span>
-                        </p>
-                    </div>
+
                 </div>
                 <div className='deHoldTime'>
                     <div className='deLeft'>{time}</div>
@@ -72,9 +76,9 @@ class Detail extends React.Component {
                     {/*<a href=""> 更多图文详情</a>*/}
                     {/*</div>*/}
                 </div>
-                <div className='noticeOfPurchase'>
+                <div className='noticeOfbuy'>
                     <h1 className='noticeTitle'>购票须知</h1>
-                    <div className='infoPurchase '>
+                    <div className='infobuy '>
                         <li className='noticeItem'>
                             <span className='noticeInfo'>演出时长</span>
                             &nbsp;&nbsp;&nbsp;&nbsp;
@@ -103,12 +107,15 @@ class Detail extends React.Component {
             </div>
             <div className='navBottom'>
                 <div className='wantSee' onClick={this.collection}>
-                    <Icon type={isCollected === 0 ? 'heart-o' : 'heart'} color={isCollected === 0 ? '' : 'red'}/>
+                    <Icon className='heart' type={isCollected === 0 ? 'heart-o' : 'heart'} color={isCollected === 0 ? '' : 'red'}/>
                     <br/>
                     <span>想看</span>
                 </div>
-                <Link to='/buynow'>
-                    <div className='purchaseNow' >
+                <Link to={{
+                    pathname:'/buynow',
+                    search:`?projectId=${this.projectId}`
+                }}>
+                    <div className='buyNow' >
                         选择购票
                     </div>
                 </Link>
@@ -126,7 +133,7 @@ class Detail extends React.Component {
                 this.props.queryCollection();
                 this.setState({isCollected: 1});
             }else if(parseFloat(result.code) === 1){
-
+                alert('请登录后再收藏！');
             }
             return;
         }

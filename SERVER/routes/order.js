@@ -1,50 +1,35 @@
 const express = require('express'),
     route = express.Router(),
     {writeFile} = require('../utils/promiseFS'),
-    ORDER_PATH = './json/order.json',
-    utils = require('../utils/utils');
+    ORDER_PATH = './json/order.json';
 
-route.post('/add', (req, res)=>{
-    let personID = req.session.personID;
-
-    //=>已经登录状态下，把信息直接存储到JSON中即可
+route.post('/pay', (req, res)=>{
+    let personID = req.session.personID,
+        isUpdate = false;
     if (personID) {
-        utils.ADD_ORDER(req, res, req.body).then(() => {
+
+        let {projectId, data, dataTime, week, count, price} = req.body;
+
+        let orderDetail = {
+            orderId: req.orderDATA.length === 0 ? 1 : (parseFloat(req.orderDATA[req.orderDATA.length - 1].orderId) + 1),//=>ID自增长
+            projectId,
+            personID,
+            data,
+            dataTime,
+            week,
+            count,
+            price,
+            state: 0,//=>默认是不支付
+            time: new Date().getTime()
+        };
+        //=>把数据先存放到原始数组中，最后把原始数组写入到JSON中永久保存
+        req.orderDATA.push(orderDetail);
+
+        writeFile(ORDER_PATH, req.orderDATA).then(() => {
             res.send({code: 0, msg: 'OK!'});
         }).catch(() => {
             res.send({code: 1, msg: 'NO!'});
         });
-        return;
-    }
-
-    //=>未登录状态下，临时存储到SESSION中，等到下一次登录成功，直接把信息存储到文件中（并且清空SESSION中的信息）
-    !req.session.orderList ? req.session.orderList = [] : null;
-    req.session.orderList.push(req.body);
-    res.send({code: 0, msg: 'OK!'});
-
-});
-
-route.post('/pay', (req, res)=>{
-    let {orderId} = req.body,
-        personID = req.session.personID,
-        isUpdate = false;
-    if (personID) {
-        req.orderDATA = req.orderDATA.map(item => {
-            if (parseFloat(item.orderId) === parseFloat(orderId) && parseFloat(item.personID) === parseFloat(personID)) {
-                isUpdate = true;
-                return {...item, state: 1};
-            }
-            return item;
-        });
-        if (isUpdate) {
-            writeFile(ORDER_PATH, req.orderDATA).then(() => {
-                res.send({code: 0, msg: 'OK!'});
-            }).catch(() => {
-                res.send({code: 1, msg: 'NO!'});
-            });
-        } else {
-            res.send({code: 1, msg: 'NO!'});
-        }
         return;
     }
     res.send({code: 1, msg: 'NO LOGIN!'});

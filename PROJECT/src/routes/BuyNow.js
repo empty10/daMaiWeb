@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import '../static/css/buynow.less';
 import {Icon} from 'antd';
-import {queryInfo, buyNow, payNow} from "../api/product";
+import {queryInfo, buyNow, payNow, checkLogin, login} from "../api/product";
 import Qs from "qs";
 import action from "../store/action";
 import store from "../store";
@@ -17,8 +17,13 @@ class BuyNow extends React.Component {
     }
 
     async componentDidMount() {
-        // let {price}=this.props.detail.data;
-        console.log(this.props);
+        //验证是否登录
+        let resultLogin = await login('lmh', '123456789012345678901234');
+        if (parseFloat(resultLogin.code) === 0) {
+            console.log('您已经登录成功！');
+        } else {
+            console.log('目前您尚未登录！');
+        }
         let {location: {search}, timeSelected} = this.props,
             {projectId = 0} = Qs.parse(search.substr(1) || {});
         this.projectId = projectId; //把产品ID挂载到实例上
@@ -139,6 +144,7 @@ class BuyNow extends React.Component {
         let result = await payNow(objPay);
         if (parseFloat(result.code) === 0) {
             alert('恭喜您已经订购成功！')
+
         } else {
             alert('很遗憾，订购失败！请您重新下单，谢谢！')
         }

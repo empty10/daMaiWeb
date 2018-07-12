@@ -15,7 +15,6 @@ import Detail from "./routes/Detail";
 
 import ListShow from "./routes/showList/ListShow";
 import BuyNow from "./routes/BuyNow";
-import ChooseOk from "./routes/ChooseOk";
 
 
 render(<Provider store={store}>
@@ -25,17 +24,13 @@ render(<Provider store={store}>
                 <Switch>
                     <Route path={'/home'} component={Home}/>
                     <Route path={'/list'} component={ListShow}/>
-                    <Route path={'/'} component={Detail}/>
                     {/*<Route path={'/home'} exact component={Home}/>*/}
                     {/*<Route path={'/personal'} component={Person}/>*/}
                     {/*<Route path={'/'}  component={Detail}/>*/}
                     <Route path={'/detail'}  component={Detail}/>
                      <Route path={'/buynow'} component={BuyNow}/>
-                    {/*<Route path={'/'} component={ChooseOk}/>*/}
 
-                    {/*<Redirect to={'/Detail'}/>*/}
-                    {/*<Route path={'/'} component={Detail}/>*/}
-                    <Route path={'/'} component={BuyNow}/>
+
                     {/*<Redirect to={'/home'}/>*/}
                 </Switch>
             </div>

@@ -39,8 +39,9 @@ class Detail extends React.Component {
     }
 
     render() {
-        console.log(this.state);
-        let {data, isCollected} = this.state;
+        let {data, isCollected} = this.state,
+            resD=null,resF=null;
+        console.log(data);
         this.data = data;
         if (!data) return '';
         let {name, time, city, address, price, pic, desc, duration, joinTime, limitDesc, explain} = data;
@@ -48,11 +49,7 @@ class Detail extends React.Component {
         return <div className='perform'>
             <div className='performPage'>
                 <div className='headerBox'>
-                    <div className='bg' >
-                        {/*style={{background:`url(${pic}) no-repeat fixed`}}*/}
-                        {/*<div className='bg-blur' >*/}
-                        {/*</div>*/}
-
+                    <div className='bg' style={{background:`url(${pic}) no-repeat`,backgroundSize:'300%,300%'}}>
                         <div className='itemBox'>
                             <div className='pic'><img src={pic} alt=""/></div>
                             <p className='title'>{name} </p>
@@ -76,7 +73,7 @@ class Detail extends React.Component {
                     {/*<a href=""> 更多图文详情</a>*/}
                     {/*</div>*/}
                 </div>
-                <div className='noticeOfbuy'>
+                <div className='noticeOfBuy'>
                     <h1 className='noticeTitle'>购票须知</h1>
                     <div className='infobuy '>
                         <li className='noticeItem'>

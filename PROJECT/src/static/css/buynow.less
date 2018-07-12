@@ -17,15 +17,16 @@
       top: .5rem;
       display: flex;
       .dateTime {
-        color: #ff1268;
         padding: .1rem .08rem;
         margin-right: .1rem;
         width: 1.3rem;
         text-align: center;
+        color: #666;
         border-radius: .03rem;
         border: .01rem solid #e7e7e7;
 
         &.active {
+          color: #ff1268;
           border: .01rem solid #ff1268;
         }
       }
@@ -39,7 +40,7 @@
       top: 1.4rem;
       display: flex;
       .fieldTime {
-        color: #ff1268;
+        color: #666;
         padding: .1rem .08rem;
         margin-right: .1rem;
         width: 1.3rem;
@@ -48,6 +49,7 @@
         border: .01rem solid #e7e7e7;
 
         &.active {
+          color: #ff1268;
           border: .01rem solid #ff1268;
         }
       }
@@ -61,13 +63,17 @@
       top: 2.3rem;
       display: flex;
       .seatClass {
-        color: #ff1268;
+        color: #666;
         padding: .1rem .08rem;
         margin-right: .1rem;
         width: 1.3rem;
         text-align: center;
         border-radius: .03rem;
-        border: .01rem solid #ff1268;
+        border: .01rem solid #e7e7e7;
+        &.active{
+          color: #ff1268;
+          border: .01rem solid #ff1268;
+        }
       }
     }
     .quantity {
@@ -83,9 +89,10 @@
       .chooseTable {
         position: relative;
         width: 3.8rem;
-        height: 1rem;
+        height: .6rem;
         padding: .2rem auto;
         margin: .2rem 0;
+        color: rgba(0, 0, 0, 0.55);
 
         .chooseType {
           position: absolute;
@@ -97,6 +104,7 @@
           font-size: .25rem;
           color: lightgray;
           left: 2.5rem;
+
           .num {
             color: rgba(0, 0, 0, 0.5);
             margin: 0 .2rem;

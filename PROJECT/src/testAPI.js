@@ -10,12 +10,12 @@ export default axios;
 /*//注册
 let result = axios.post('/personal/person',{
     userName:'lmh',
-     pwd:'123456789012345678901234'
- }).then((res)=>{
-     console.log(res);
- }).catch((res)=>{
+    pwd:'123456789012345678901234'
+}).then((res)=>{
     console.log(res);
- });*/
+}).catch((res)=>{
+    console.log(res);
+});*/
 
 //登录
 /*

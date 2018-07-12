@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM, {render} from 'react-dom'
+import {render} from 'react-dom'
 import {Provider} from 'react-redux'
 import store from './store/index'
 import {HashRouter, Switch, Route, Redirect} from 'react-router-dom'
@@ -12,14 +12,20 @@ import './static/css/reset.min.css';
 import Home from "./routes/Home";
 import Person from "./routes/Person";
 import Detail from "./routes/Detail";
+
+import ListShow from "./routes/showList/ListShow";
 import BuyNow from "./routes/BuyNow";
 import ChooseOk from "./routes/ChooseOk";
+
 
 render(<Provider store={store}>
     <HashRouter>
         <LocaleProvider locale={zh_CN}>
             <div className={'container'}>
                 <Switch>
+                    <Route path={'/home'} component={Home}/>
+                    <Route path={'/list'} component={ListShow}/>
+                    <Route path={'/'} component={Detail}/>
                     {/*<Route path={'/home'} exact component={Home}/>*/}
                     {/*<Route path={'/personal'} component={Person}/>*/}
                     {/*<Route path={'/'}  component={Detail}/>*/}
@@ -28,6 +34,9 @@ render(<Provider store={store}>
                     {/*<Route path={'/'} component={ChooseOk}/>*/}
 
                     {/*<Redirect to={'/Detail'}/>*/}
+                    {/*<Route path={'/'} component={Detail}/>*/}
+                    <Route path={'/'} component={BuyNow}/>
+                    {/*<Redirect to={'/home'}/>*/}
                 </Switch>
             </div>
         </LocaleProvider>

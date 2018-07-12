@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
-    <title>React App</title>
+    <title>大麦</title>
 </head>
 <body>
 <script>
@@ -12,12 +12,13 @@
             let HTML = document.documentElement,
                 winW = HTML.clientWidth,
                 desW = 414,
-                fontBase=winW / desW * 100;
+                fontBase = winW / desW * 100;
             if (winW >= desW) {
-                HTML.style.fontSize ='100px';
+                HTML.style.fontSize = '100px';
                 return;
             }
-            HTML.style.fontSize =  fontBase + 'px';
+            HTML.style.fontSize = fontBase + 'px';
+
         }
 
         computed();

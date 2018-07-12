@@ -12,7 +12,6 @@ import './static/css/reset.min.css';
 import Home from "./routes/Home";
 import Person from "./routes/Person";
 import Detail from "./routes/Detail";
-
 import ListShow from "./routes/showList/ListShow";
 
 render(<Provider store={store}>
@@ -20,8 +19,8 @@ render(<Provider store={store}>
         <LocaleProvider locale={zh_CN}>
             <div className={'container'}>
                 <Switch>
-                    {/*<Route path={'/home'} exact component={Home}/>*/}
-                    {/*<Route path={'/personal'} component={Person}/>*/}
+                    <Route path={'/home'} component={Home}/>
+                    <Route path={'/list'} component={ListShow}/>
                     <Route path={'/'} component={Detail}/>
                     {/*<Redirect to={'/home'}/>*/}
                 </Switch>

@@ -36,7 +36,7 @@ class Person extends React.Component {
                 }
                 }></Route>
                 <Route path='/personal/login' component={Login}></Route>
-                <Route path='/personal/person' component={Rest}></Route>
+                <Route path='/personal/register' component={Rest}></Route>
                 <Route path='/personal/favorite/list' component={Cart}></Route>
                 <Route path='/personal/order/list' component={Cart}></Route>
                 <Redirect from='/personal' to='/personal/restafter'></Redirect>

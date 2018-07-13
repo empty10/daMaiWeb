@@ -25,7 +25,15 @@ class Cart extends React.Component {
         let {projectID,name,city,time,address,price,desc}=data;
         return <div className='myLovebox'>
             {data.map((item,index)=>{
-                return 
+                return <div>
+                    <div className='picture'><img src={projectID} alt={name}/></div>
+                    <div className='phone'>
+                   <h3>{name}</h3>
+                       <p>{time}</p>
+                        <p>{address}</p>
+                        <p>{price}</p>
+                    </div>
+                </div>
 
 
 

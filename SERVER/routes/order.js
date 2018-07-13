@@ -19,7 +19,7 @@ route.post('/pay', (req, res)=>{
             week,
             count,
             price,
-            state: 0,//=>默认是不支付
+            state: 1,//=>默认是已支付
             time: new Date().getTime()
         };
         //=>把数据先存放到原始数组中，最后把原始数组写入到JSON中永久保存
@@ -36,45 +36,36 @@ route.post('/pay', (req, res)=>{
 });
 
 route.get('/list', (req, res)=>{
-    let personID = req.session.personID,
-        {type} = req.query;
-    if (type) {
-        let item = req.orderDATA.filter(item => {
-            return parseFloat(item.state) === parseFloat(type) && parseFloat(item.personID) === parseFloat(personID);
-        });
+    let personID = req.session.personID;
+    let item = req.orderDATA.filter(item => {
+        return parseFloat(item.personID) === parseFloat(personID);
+    });
 
-        //增加：项目名称、开始时间
-        item.map(key=>{
-            let {projectId} = key;
-            let project = null;
-            if(projectId){
-                project = req.projectsDATA.find(item => {
-                    return parseFloat(item.projectId) === parseFloat(projectId);
-                });
-            }
-            let {name, time} = project;
-
-            key.name = name;
-            key.time = time;
-
-            return key;
-        });
-
-        if (item) {
-            res.send({
-                code: 0,
-                msg: 'OK!',
-                data: item
+    //增加：项目名称、开始时间
+    item.map(key=>{
+        let {projectId} = key;
+        let project = null;
+        if(projectId){
+            project = req.projectsDATA.find(item => {
+                return parseFloat(item.projectId) === parseFloat(projectId);
             });
-            return;
         }
+        let {name, time} = project;
+
+        key.name = name;
+        key.time = time;
+
+        return key;
+    });
+
+    if (item) {
+        res.send({
+            code: 0,
+            msg: 'OK!',
+            data: item
+        });
         return;
     }
-    res.send({
-        code: 1,
-        msg: 'NO!',
-        data: null
-    });
 });
 
 module.exports = route;

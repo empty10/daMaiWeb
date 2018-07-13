@@ -30,4 +30,4 @@ class CellList extends React.Component {
     }
 }
 
-export default connect(state => state.home, action.home)(CellList);
+export default  connect(state=>state.home, action.home)(CellList);

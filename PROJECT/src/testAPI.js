@@ -18,16 +18,14 @@ let result = axios.post('/personal/person',{
 });*/
 
 //登录
-/*
-let result = axios.post('/personal/login',{
-    userName:'lmh',
-    pwd:'123456789012345678901234'
-}).then((res)=>{
-    console.log(res);
-}).catch((res)=>{
-     console.log(res);
-});
-*/
+// let result = axios.post('/personal/login',{
+//     userName:'lmh',
+//     pwd:'123456789012345678901234'
+// }).then((res)=>{
+//     console.log(res);
+// }).catch((res)=>{
+//      console.log(res);
+// });
 
 //登录验证
 /*let result = axios.get('/personal/checkLogin').then((res)=>{
@@ -123,13 +121,8 @@ let result = axios.post('/personal/login',{
 //     console.log(res);
 // });
 
-//我的订单/我的票
-//type: 0我的订单 1我的票
-// let result = axios.get('/order/list',{
-//     params:{
-//         type:1
-//     }
-// }).then(res=>{
+//我的订单
+// let result = axios.get('/order/list').then(res=>{
 //     console.log(res);
 // }).catch(res=>{
 //     console.log(res);

@@ -11,6 +11,8 @@ import './static/css/common.less'
 import './static/css/reset.min.css';
 import Home from "./routes/Home";
 import Person from "./routes/Person";
+import NavFixed from './component/NavFixed'
+
 import Detail from "./routes/Detail";
 import Login from "./routes/person/Login";
 import Rest from "./routes/person/Rest";
@@ -29,14 +31,12 @@ render(<Provider store={store}>
             <div className={'container'}>
                 <Switch>
                     <Route path={'/home'} component={Home}/>
-                    <Route path={'/list'} component={ListShow}/>
-                    {/*<Route path={'/home'} exact component={Home}/>*/}
                     <Route path={'/personal'} component={Person}/>
-                    {/*<Route path={'/'}  component={Detail}/>*/}
-                    <Route path={'/detail'}  component={Detail}/>
-                    <Route path={'/buynow'} component={BuyNow}/>
+                    <Redirect to={'/home'}/>
+                    <Route path={'/list'} component={ListShow}/>
 
                 </Switch>
+                <NavFixed/>
             </div>
         </LocaleProvider>
     </HashRouter>

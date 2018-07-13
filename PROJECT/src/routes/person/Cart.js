@@ -5,39 +5,47 @@ import store from '../../store/index'
 import action from '../../store/action/index'
 import '../../static/css/Cart.less'
 import {queryList} from '../../api/register'
+import CellList from '../../component/CellList'
+import {Link} from 'react-router-dom'
 
 class Cart extends React.Component {
     constructor(props,context) {
-        super(props,context);
+        super(props, context);
+           this.state={
+               listData:[]
+           }
 
     }
-
   async componentDidMount(){
+        let {cart:{collected}}=this.props;
         let result=await queryList();
         if(parseFloat(result.code)===0){
            let {data}=result;
-            this.data=data;
+           this.setState({
+               listData:data
+           })
         }
     }
     render() {
-      let {data=[]}=this;
-        console.log(data);
-        let {projectID,name,city,time,address,price,desc}=data;
-        return <div className='myLovebox'>
-            {data.map((item,index)=>{
-                return 
-
-
-
-            })}
-            {/*<div className='picture'><img src="" alt=""/>
+             let listData=this.state.listData;
+        return <div>
+          {/*  <SearchBar/>*/}
+            <div className={'con-axis fixTop'}>
+                {
+                    this.state.listData.length === 0 ? (<div style={{
+                        textAlign: 'center',
+                        paddingTop: '.4rem'
+                    }}><p>暂时没有收藏</p></div>) : listData.map((item, index) => {
+                        let {projectId
+                        } = item;
+                        return <Link to={{
+                            pathname: '/home/list/info',
+                            search: `?projectId=${projectId}`
+                        }}><CellList key={index} showData={item}/></Link>
+                    })
+                }
             </div>
-            <div className='infoList'>
-                <p>演唱会名</p>
-                <p>详情</p>
-                <p>${price}</p>*/}
-            </div>
-
+        </div>
     }
 }
 

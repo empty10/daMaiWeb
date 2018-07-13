@@ -193,7 +193,7 @@ for (let i = 1; i < 1000; i++) {
             m = dmN;
     }
     m = (m < 100 && m >= 10) ? '0' + m : (m < 10 ? '00' + m : m);
-    item.name = item.name + '[第' + m + '项]';
+    item.name = item.name + '-' + m;
     result.push(item);
 
     //场次信息

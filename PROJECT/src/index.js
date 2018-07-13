@@ -34,10 +34,10 @@ render(<Provider store={store}>
                     {/*<Route path={'/personal'} component={Person}/>*/}
                     {/*<Route path={'/'}  component={Detail}/>*/}
                     <Route path={'/detail'}  component={Detail}/>
-                     <Route path={'/buynow'} component={BuyNow}/>
+                    <Route path={'/buynow'} component={BuyNow}/>
 
 
-                    {/*<Redirect to={'/home'}/>*/}
+                    <Redirect to={'/home'}/>
                 </Switch>
             </div>
         </LocaleProvider>

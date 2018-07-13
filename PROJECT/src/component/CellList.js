@@ -9,10 +9,10 @@ class CellList extends React.Component {
     }
 
     render() {
-        let {name, city, time, address, price, desc,tag} = this.props.showData;
+        let {name, city, time, address, price, desc,tag, pic} = this.props.showData;
         return <div className={'list-unit'}>
             <img className={'pic-cell'}
-                 src={'https://damaipimg.oss-cn-beijing.aliyuncs.com/cfs/src/4797d912-611e-4244-ac5f-81df9295d7ae.jpg'}/>
+                 src={pic}/>
             <div className={'info-cell'}>
                 <p className={'title-cell'}>{name}</p>
                 <p>{time} | {city}</p>

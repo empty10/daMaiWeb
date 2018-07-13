@@ -13,7 +13,7 @@ class RestAfter extends React.Component {
         return <section className='restAfterBox'>
              <header className='headerBox'><div className='ImgsLogo'><img src="//perico.damai.cn/userheadphotos/540017/108003434.jpg" alt=""/></div><p>大麦</p></header>
             <ul>
-                <Link to='/order/list'><li><Icon type='profile'></Icon><span>我的订单<Icon type='right'></Icon></span><div></div></li></Link>
+                <Link to='/personal/order/listOrder'><li><Icon type='profile'></Icon><span>我的订单<Icon type='right'></Icon></span><div></div></li></Link>
                 <a href="javascript:;"><li><Icon type='red-envelope'/><span>优惠卷<Icon type='right'></Icon></span><div></div></li></a>
                 <Link to='/personal/order/list'><li><Icon type='switcher'></Icon><span>我的票<Icon type='right'></Icon></span><div></div></li></Link>
                 <Link to='/personal/favorite/list'><li><Icon type='heart-o'></Icon><span>我想看的<Icon type='right'></Icon></span><div></div></li></Link>

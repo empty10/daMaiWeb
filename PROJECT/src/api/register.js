@@ -20,3 +20,11 @@ export function queryLogOut() {
 export function queryList() {
     return axios.get('/favorite/list')
 }
+//获取购物车收藏
+export function queryCartList(productID) {
+    return axios.get('/order/list',{
+        params:{
+            productID,
+        }
+    })
+}

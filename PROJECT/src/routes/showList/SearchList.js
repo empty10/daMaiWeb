@@ -24,6 +24,7 @@ class ListShow extends React.Component {
             {searchValue} = Qs.parse(search.substr(1)) || {};
         let result = await  querySearch(searchValue),
             {data} = result;
+
         this.setState({searchShowData: data});
     }
 

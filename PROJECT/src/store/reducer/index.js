@@ -7,8 +7,6 @@ import  buyNow from './buynow';
 
 import home from './home';
 
-
-
 let reducer = combineReducers({
     detail,
     buyNow,

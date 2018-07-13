@@ -1,0 +1,218 @@
+import React from 'react';
+import {connect} from 'react-redux'
+import NavFixed from "../component/NavFixed";
+import SearchBar from '../component/SearchBar'
+import Banner from '../component/Banner'
+import {Link} from 'react-router-dom'
+import {Icon} from 'antd';
+import action from "../store/action";
+//less
+import '../static/less/home.less'
+
+
+class Home extends React.Component {
+    constructor(props, context) {
+        super(props, context);
+        this.state = {
+            isChange: true,
+            isMore: false
+        }
+    }
+
+    async componentDidMount() {
+        let {activityData, showActivity, overseaData, showOversea, concertData, showConcert, likeListData, showLikeList} = this.props;
+        if (activityData.data.length === 0) {
+            showActivity();
+        }
+        if (overseaData.data.length === 0) {
+            showOversea();
+        }
+        if (concertData.data.length === 0) {
+            showConcert();
+        }
+        if (likeListData.data.length === 0) {
+            showLikeList();
+        }
+    }
+
+    componentWillReceiveProps() {
+        this.setState({isMore: false});
+    }
+
+    componentWillUpdate() {
+        let winH = document.documentElement.clientHeight || document.body.clientHeight,
+            pageH = document.documentElement.scrollHeight || document.body.scrollHeight,
+            nowH = document.documentElement.scrollTop || document.body.scrollTop;
+        if (nowH > (pageH - winH - 100)) {
+            if (this.state.isMore) return;
+            this.setState({isMore: true});
+            let {likeListData, showLikeList} = this.props;
+            if (likeListData.page >= likeListData.total) return;
+            showLikeList({
+                page: likeListData.page + 1
+            });
+
+        }
+
+    }
+
+    handleChange = () => {
+        let {concertData, showConcert} = this.props;
+        if (!this.state.isChange) return;
+        this.setState({isChange: true});
+        let {page, total, limit} = concertData;
+        // let changePage = Math.floor(Math.random() * (parseFloat(total) - parseFloat(page)) + parseFloat(page));
+        let changePage = Math.floor(Math.random() * 9 + 1);
+        showConcert({
+            page: changePage
+        });
+    };
+
+    render() {
+        let {activityData, overseaData, concertData, likeListData} = this.props,
+            {data: actData} = activityData,
+            {data: conData} = concertData,
+            {data: LikeData} = likeListData;
+        if (actData.length === 0) return '';
+        if (overseaData.data.length === 0) return '';
+        if (conData.length === 0) return '';
+        if (LikeData.length === 0) return ''
+            ;
+        return <div className={'con-axis fixTop fixBottom'}>
+            <SearchBar/>
+            <NavFixed/>
+            <Banner/>
+            <div className={'category-box clearfix'}>
+                <Link to={{
+                    pathname: '/list',
+                    search: `?flagType=1`
+                }} className={'categ-unit'}><i className={'navIcon01'}></i><span>演唱会</span></Link>
+                <Link to={{
+                    pathname: '/list',
+                    search: `?flagType=2`
+                }}  className={'categ-unit'}><i className={'navIcon02'}></i><span>话剧歌剧</span></Link>
+                <Link to={{
+                    pathname: '/list',
+                    search: `?flagType=3`
+                }}  className={'categ-unit'}><i className={'navIcon03'}></i><span>音乐会</span></Link>
+                <Link to={{
+                    pathname: '/list',
+                    search: `?flagType=4`
+                }}  className={'categ-unit'}><i className={'navIcon04'}></i><span>体育</span></Link>
+                <Link to={{
+                    pathname: '/list',
+                    search: `?flagType=5`
+                }}  className={'categ-unit'}><i className={'navIcon05'}></i><span>曲苑杂坛</span></Link>
+                <Link to={{
+                    pathname: '/list',
+                    search: `?flagType=6`
+                }}  className={'categ-unit'}><i className={'navIcon06'}></i><span>亲子</span></Link>
+                <Link to={{
+                    pathname: '/list',
+                    search: `?flagType=7`
+                }}  className={'categ-unit'}><i className={'navIcon07'}></i><span>展览休闲</span></Link>
+                <Link to={{
+                    pathname: '/list',
+                    search: `?flagType=8`
+                }}  className={'categ-unit'}><i className={'navIcon08'}></i><span>电影</span></Link>
+            </div>
+            <div className={'ban-adv'}
+                 style={{backgroundImage: 'url("https://damaipimg.oss-cn-beijing.aliyuncs.com/cfs/src/4797d912-611e-4244-ac5f-81df9295d7ae.jpg")'}}></div>
+            {/*热门活动*/}
+            <div className={'hot-act-box'}>
+                <div className={'hot-act-row'}>
+                    <div className={'dbl-unit narrate-mask'}>
+                        <img src={actData[0]['pic']}/>
+                        <div className={'narrate'}>
+                            <p className={'post-li'}><span>北京|大家都在看</span></p>
+                            <p className={'city-li'}>{actData[0]['city']}</p>
+                            <p className={'collect-li'}><i className={'iconfont icon-faxian-yanjing'}></i> 12.3万</p>
+                        </div>
+                    </div>
+                    <div className='unit-oth'><img
+                        src={actData[1]['pic']}/>
+                    </div>
+                </div>
+                <div className={'hot-act-row'}>
+                    {actData.slice(2, 5).map((item, index) => {
+                        let {pic, tag} = item;
+                        return <div key={index} className={'unit'}>
+                            <img src={pic}/>
+                            <p>{tag}</p></div>
+                    })}
+                </div>
+            </div>
+            {/*海外现场*/}
+            <div className={'fl-title-bar'}>
+                <p>海外现场<Link to={'/list/oversea'} className={'more-btn'}>更多<Icon type={'right'}/></Link></p>
+            </div>
+            <div className={'fl-box'}>
+                <div className={'oversea-box'}>
+                    {overseaData.data.slice(0, 2).map((item, index) => {
+                        let {pic, tag, address} = item;
+                        return <div key={index} className={'oversea-unit'}>
+                            <img src={pic}/>
+                            <div className={'info-row clearfix'}>
+                                <div className={'sm-head'}><img
+                                    src={pic}/>
+                                </div>
+                                <div className={'sn-info'}>
+                                    <p>{tag}</p>
+                                    <p>{address}</p>
+                                </div>
+                            </div>
+                        </div>
+                    })}
+                </div>
+            </div>
+            {/*演唱会*/}
+            <div className={'fl-title-bar'}>
+                <p>演唱会<Link to={'list/concert'} className={'more-btn'}>更多<Icon type={'right'}/></Link></p>
+            </div>
+            <div className={'fl-box change-box'}>
+                <div className={'lg-unit narrate-mask'}>
+                    <img
+                        src={conData[0]['pic']} width={'100%'}/>
+                    <div className={'narrate'}>
+                        <p className={'post-li'}><span>北京 | 大家都在看</span></p>
+                        <p className={'city-li'}>{conData[0]['tag']}</p>
+                        <p className={'collect-li'}><i className={'iconfont icon-faxian-yanjing'}></i> 12.3万</p>
+                    </div>
+                </div>
+                <div className={'thr-box clearfix'}>
+                    {conData.slice(1, 7).map((item, index) => {
+                        let {pic, name, tag} = item;
+                        return <div key={index} className={'thr-unit'}>
+                            <img
+                                src={pic}/>
+                            <p className="p-esp2">{name}</p>
+                            <span className={'tag-ks'}>{tag}</span>
+                        </div>
+                    })}
+                </div>
+                <a href={'javascript:;'} className={'change-btn'} onClick={this.handleChange}
+                   isChange={this.state.isChange}>换一换<Icon
+                    type={'reload'}/></a>
+            </div>
+            {/*猜你喜欢*/}
+            <div className={'like-show clearfix'}>
+                <p className={'like-title'}>- <span><Icon type={'heart'}/></span>猜你喜欢- </p>
+                {/* UNIT*/}
+                <div className={'like-box clearfix'}>
+                    {LikeData.map((item, index) => {
+                        let {pic, name, tag, desc} = item;
+                        return <div key={index} className={'like-unit'}>
+                            <img src={pic}/>
+                            <p className="title-p-sm">{name}</p>
+                            <p><span className={'tag-ks'}>{tag}</span></p>
+                            <p className={'p-esp2'}>{desc}</p>
+                        </div>
+                    })}
+                </div>
+            </div>
+
+        </div>
+    }
+}
+
+export default connect(state => ({...state.home}), action.home)(Home);

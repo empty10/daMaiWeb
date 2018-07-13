@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import NavFixed from "../../component/NavFixed";
+
 import SearchBar from '../../component/SearchBar'
 import Banner from '../../component/Banner'
 import {Link, withRouter} from 'react-router-dom'
@@ -75,10 +75,9 @@ class IndexShow extends React.Component {
         if (overseaData.data.length === 0) return '';
         if (conData.length === 0) return '';
         if (LikeData.length === 0) return '';
-        console.log(this.state);
         return <div className={'con-axis fixTop fixBottom'}>
             <SearchBar/>
-            <NavFixed/>
+
             <Banner/>
             <div className={'category-box clearfix'}>
                 {this.props.navList.map((item, index) => {

@@ -11,17 +11,8 @@ import './static/css/common.less'
 import './static/css/reset.min.css';
 import Home from "./routes/Home";
 import Person from "./routes/Person";
-import Detail from "./routes/Detail";
-import Login from "./routes/person/Login";
-import Rest from "./routes/person/Rest";
-import RestAfter from "./routes/person/RestAfter";
-import Regirect from "./routes/Regirect";
-import PersonalList from "./routes/restAfter/PersonalList";
-import LoginMess from "./routes/person/LoginMess";
-import LoginOpen from "./routes/person/LoginOpen";
 
-import ListShow from "./routes/showList/ListShow";
-import BuyNow from "./routes/BuyNow";
+import NavFixed from './component/NavFixed'
 
 render(<Provider store={store}>
     <HashRouter>
@@ -29,16 +20,10 @@ render(<Provider store={store}>
             <div className={'container'}>
                 <Switch>
                     <Route path={'/home'} component={Home}/>
-                    <Route path={'/list'} component={ListShow}/>
-                    {/*<Route path={'/home'} exact component={Home}/>*/}
-                    {/*<Route path={'/personal'} component={Person}/>*/}
-                    {/*<Route path={'/'}  component={Detail}/>*/}
-                    <Route path={'/detail'}  component={Detail}/>
-                    <Route path={'/buynow'} component={BuyNow}/>
-
-
+                    <Route path={'/personal'} component={Person}/>
                     <Redirect to={'/home'}/>
                 </Switch>
+                <NavFixed/>
             </div>
         </LocaleProvider>
     </HashRouter>

@@ -16,7 +16,7 @@ class Detail extends React.Component {
                 collected: [],
                 unCollected: []
             },
-            isCollected: 0    //是否收藏，0未收藏，1已收藏
+            isCollected: 0    //是否navBottom收藏，0未收藏，1已收藏
         };
     }
 
@@ -112,6 +112,7 @@ class Detail extends React.Component {
                 </div>
             </div>
             <div className='navBottom'>
+                <div className={'col'}></div>
                 <div className='wantSee' onClick={this.collection}>
                     <Icon className='heart' type={isCollected === 0 ? 'heart-o' : 'heart'}
                           color={isCollected === 0 ? '' : 'red'}/>
@@ -119,7 +120,7 @@ class Detail extends React.Component {
                     <span>想看</span>
                 </div>
                 <Link to={{
-                    pathname: '/buynow',
+                    pathname: '/home/buynow',
                     search: `?projectId=${this.projectId}`
                 }}>
                     <div className='buyNow' onClick={this.check}>

@@ -8,6 +8,8 @@ import '../static/less/home.less';
 import ListShow from "./showList/ListShow";
 import IndexShow from "./showList/IndexShow";
 import SearchList from "./showList/SearchList";
+import Detail from "./Detail";
+import BuyNow from "./BuyNow";
 
 export default class Home extends React.Component {
     constructor(props, context) {
@@ -20,6 +22,8 @@ export default class Home extends React.Component {
                 <Route path='/home' exact component={IndexShow}/>
                 <Route path='/home/list' component={ListShow}/>
                 <Route path='/home/searchList' component={SearchList}/>
+                <Route path='/home/Detail' component={Detail}/>
+                <Route path='/home/buynow' component={BuyNow}/>
             </Switch>
         </section>;
     }

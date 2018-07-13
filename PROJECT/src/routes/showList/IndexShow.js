@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 
 import SearchBar from '../../component/SearchBar'
 import Banner from '../../component/Banner'
+import NavFixed from '../../component/NavFixed'
 import {Link, withRouter} from 'react-router-dom'
 import {Icon} from 'antd';
 import action from "../../store/action";
@@ -77,8 +78,8 @@ class IndexShow extends React.Component {
         if (LikeData.length === 0) return '';
         return <div className={'con-axis fixTop fixBottom'}>
             <SearchBar/>
-
             <Banner/>
+            <NavFixed/>
             <div className={'category-box clearfix'}>
                 {this.props.navList.map((item, index) => {
                     let {index: navIndex, type, tagName} = item;
@@ -111,10 +112,16 @@ class IndexShow extends React.Component {
                 </div>
                 <div className={'hot-act-row'}>
                     {actData.slice(2, 5).map((item, index) => {
-                        let {pic, tag} = item;
+                        let {projectId, pic, tag} = item;
                         return <div key={index} className={'unit'}>
+                            <Link to={{
+                                pathname: '/home/Detail',
+                                search: `?projectId=${projectId}`
+                            }}>
                             <img src={pic}/>
-                            <p>{tag}</p></div>
+                            <p>{tag}</p>
+                            </Link>
+                        </div>
                     })}
                 </div>
             </div>
@@ -125,18 +132,23 @@ class IndexShow extends React.Component {
             <div className={'fl-box'}>
                 <div className={'oversea-box'}>
                     {overseaData.data.slice(0, 2).map((item, index) => {
-                        let {pic, tag, address} = item;
+                        let {projectId,pic,tag, address} = item;
                         return <div key={index} className={'oversea-unit'}>
-                            <img src={pic}/>
-                            <div className={'info-row clearfix'}>
-                                <div className={'sm-head'}><img
-                                    src={pic}/>
+                            <Link to={{
+                                pathname: '/home/Detail',
+                                search: `?projectId=${projectId}`
+                            }}>
+                                <img src={pic}/>
+                                <div className={'info-row clearfix'}>
+                                    <div className={'sm-head'}><img
+                                        src={pic}/>
+                                    </div>
+                                    <div className={'sn-info'}>
+                                        <p>{tag}</p>
+                                        <p>{address}</p>
+                                    </div>
                                 </div>
-                                <div className={'sn-info'}>
-                                    <p>{tag}</p>
-                                    <p>{address}</p>
-                                </div>
-                            </div>
+                            </Link>
                         </div>
                     })}
                 </div>
@@ -157,12 +169,17 @@ class IndexShow extends React.Component {
                 </div>
                 <div className={'thr-box clearfix'}>
                     {conData.slice(1, 7).map((item, index) => {
-                        let {pic, name, tag} = item;
+                        let {projectId, pic, name, tag} = item;
                         return <div key={index} className={'thr-unit'}>
-                            <img
-                                src={pic}/>
-                            <p className="p-esp2">{name}</p>
-                            <span className={'tag-ks'}>{tag}</span>
+                            <Link to={{
+                                pathname: '/home/Detail',
+                                search: `?projectId=${projectId}`
+                            }}>
+                                <img
+                                    src={pic}/>
+                                <p className="p-esp2">{name}</p>
+                                <span className={'tag-ks'}>{tag}</span>
+                            </Link>
                         </div>
                     })}
                 </div>
@@ -176,12 +193,17 @@ class IndexShow extends React.Component {
                 {/* UNIT*/}
                 <div className={'like-box clearfix'}>
                     {LikeData.map((item, index) => {
-                        let {pic, name, tag, desc} = item;
+                        let {projectId, pic, name, tag, desc} = item;
                         return <div key={index} className={'like-unit'}>
-                            <img src={pic}/>
-                            <p className="title-p-sm">{name}</p>
-                            <p><span className={'tag-ks'}>{tag}</span></p>
-                            <p className={'p-esp2'}>{desc}</p>
+                            <Link to={{
+                                pathname: '/home/Detail',
+                                search: `?projectId=${projectId}`
+                            }}>
+                                <img src={pic}/>
+                                <p className="title-p-sm">{name}</p>
+                                <p><span className={'tag-ks'}>{tag}</span></p>
+                                <p className={'p-esp2'}>{desc}</p>
+                            </Link>
                         </div>
                     })}
                 </div>

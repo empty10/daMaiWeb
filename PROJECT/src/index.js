@@ -22,7 +22,7 @@ import PersonalList from "./routes/restAfter/PersonalList";
 import LoginMess from "./routes/person/LoginMess";
 import LoginOpen from "./routes/person/LoginOpen";
 
-import BuyNow from "./routes/BuyNow";
+
 
 render(<Provider store={store}>
     <HashRouter>
@@ -33,7 +33,6 @@ render(<Provider store={store}>
                     <Route path={'/personal'} component={Person}/>
                     <Redirect to={'/home'}/>
                 </Switch>
-                <NavFixed/>
             </div>
         </LocaleProvider>
     </HashRouter>

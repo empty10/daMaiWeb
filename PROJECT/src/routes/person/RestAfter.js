@@ -15,15 +15,15 @@ class RestAfter extends React.Component {
             <ul>
                 <Link to='/order/list'><li><Icon type='profile'></Icon><span>我的订单<Icon type='right'></Icon></span><div></div></li></Link>
                 <a href="javascript:;"><li><Icon type='red-envelope'/><span>优惠卷<Icon type='right'></Icon></span><div></div></li></a>
-                <Link to='/order/list'><li><Icon type='switcher'></Icon><span>我的票<Icon type='right'></Icon></span><div></div></li></Link>
-                <Link to='/favorite/list'><li><Icon type='heart-o'></Icon><span>我想看的<Icon type='right'></Icon></span><div></div></li></Link>
+                <Link to='/personal/order/list'><li><Icon type='switcher'></Icon><span>我的票<Icon type='right'></Icon></span><div></div></li></Link>
+                <Link to='/personal/favorite/list'><li><Icon type='heart-o'></Icon><span>我想看的<Icon type='right'></Icon></span><div></div></li></Link>
                 <a href="javascript:;"><li><Icon type='environment-o'></Icon><span>收货地址<Icon type='right'></Icon></span><div></div></li></a>
                 <a href="javascript:;">  <li><Icon type='user'></Icon><span>常用购票人<Icon type='right'></Icon></span><div></div></li></a>
                     <a href="javascript:;"> <li><Icon type='edit'></Icon><span>意见反馈<Icon type='right'></Icon></span><div></div></li></a>
             </ul>
             <div className='restFooter' onClick={this.logOut}>退出登录</div>
         </section>;
-        console.log(2);
+
     }
     logOut=async ()=>{
         let result=await queryLogOut();

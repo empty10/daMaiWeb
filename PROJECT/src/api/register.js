@@ -16,3 +16,7 @@ export function queryRegister(payload) {
 export function queryLogOut() {
     return axios.get('/personal/logout')
 }
+//获取列表
+export function queryList() {
+    return axios.get('/favorite/list')
+}

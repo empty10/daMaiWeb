@@ -109,22 +109,14 @@ let result = axios.post('/personal/login',{
 //     console.log(res);
 // });
 
-// 付款确认
-// let result = axios.post('/order/add',{
+// 付款
+// let result = axios.post('/order/pay',{
 //     projectId:1,
 //     data:'2018.07.31',
 //     dataTime:'19:30',
 //     week:'周日',
-//     count:'2'
-// }).then(res=>{
-//     console.log(res);
-// }).catch(res=>{
-//     console.log(res);
-// });
-
-//付款
-// let result = axios.post('/order/pay',{
-//     orderId: 3
+//     count:'2',
+//     price:'1200'
 // }).then(res=>{
 //     console.log(res);
 // }).catch(res=>{
@@ -143,7 +135,7 @@ let result = axios.post('/personal/login',{
 //     console.log(res);
 // });
 
-//加入收藏
+// 加入收藏
 // let result = axios.post('/favorite/add',{
 //     projectId:1
 // }).then(res=>{

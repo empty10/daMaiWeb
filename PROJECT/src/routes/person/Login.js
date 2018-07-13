@@ -121,8 +121,8 @@ class Login extends React.Component {
                                type="password"/>)}
                 </FormItem>
                 <FormItem>
-                    <Button type="danger" htmlType="submit" className="login-form-button">登录</Button>
-                    Or <Link to='/personal/person'>注册</Link>
+                    <Button type="danger" htmlType="submit" className="login-form-button" style={{width:'3.75rem'}}>登录</Button>
+                      <Link to='/personal/person' style={{width:'3.75rem','margin-right':'.1rem'}}><Button type='danger' style={{width:'3.75rem','margin-top':'.2rem'}}>注册</Button></Link>
                 </FormItem>
             </Form>
         </div>;

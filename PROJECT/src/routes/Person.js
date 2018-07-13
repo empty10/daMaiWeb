@@ -6,6 +6,7 @@ import Rest from "./person/Rest";
 import {queryCheckLogin, queryRegister} from "../api/register";
 import Tip from "./person/Tip";
 import RestAfter from "./person/RestAfter";
+import Cart from "./person/Cart";
 
 class Person extends React.Component {
     constructor(props, context) {
@@ -36,6 +37,8 @@ class Person extends React.Component {
                 }></Route>
                 <Route path='/personal/login' component={Login}></Route>
                 <Route path='/personal/person' component={Rest}></Route>
+                <Route path='/personal/favorite/list' component={Cart}></Route>
+                <Route path='/personal/order/list' component={Cart}></Route>
                 <Redirect from='/personal' to='/personal/restafter'></Redirect>
             </Switch>
         </div>

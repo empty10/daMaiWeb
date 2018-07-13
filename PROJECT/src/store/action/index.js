@@ -1,6 +1,11 @@
-import person from './person'
+
+import home from './home'
+import detail from './detail';
+import buyNow from './buynow';
 
 let  action={
- register: person
+    detail,
+    buyNow,
+    home
 };
 export default  action;

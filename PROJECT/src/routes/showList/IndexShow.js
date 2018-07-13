@@ -37,8 +37,8 @@ class IndexShow extends React.Component {
         this.setState({isMore: false});
     }
 
-    componentWillUpdate(nextProps,nextState) {
-        window.onscroll = ()=> {
+    componentWillUpdate(nextProps, nextState) {
+        window.onscroll = () => {
             let winH = document.documentElement.clientHeight || document.body.clientHeight,
                 pageH = document.documentElement.scrollHeight || document.body.scrollHeight,
                 nowH = document.documentElement.scrollTop || document.body.scrollTop;
@@ -83,7 +83,7 @@ class IndexShow extends React.Component {
                 {this.props.navList.map((item, index) => {
                     let {index: navIndex, type, tagName} = item;
                     return <Link to={{
-                        pathname: '/list',
+                        pathname: '/home/list',
                         search: `?flagType=${type}&tag=${tagName}`
                     }} key={index} className={'categ-unit'}>
                         <i className={`navIcon0${navIndex}`}></i>

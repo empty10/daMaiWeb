@@ -1,3 +1,11 @@
+
+/*
+ * 真实REACT/VUE项目中，我们会把所有向服务器发送具体请求的操作写在API中（不写在组件内部，方便请求处理的统一管理）
+ *
+ *   INDEX：是把AXIOS或者FETCH等进行初始处理或者二次封装的地方
+ */
+
+
 import axios from 'axios';
 import Qs from 'qs';
 
